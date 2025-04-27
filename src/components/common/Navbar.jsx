@@ -3,22 +3,28 @@ import { Link } from 'react-router-dom';
 import { HiMenuAlt3 } from "react-icons/hi";
 import { FaRss, FaSteam, FaTwitch, FaYoutube } from 'react-icons/fa';
 import { MdClose } from 'react-icons/md';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectSidebarStatus, setSidebarOff, setSidebarOn } from '../../redux/store/sidebarSlice';
 
 
 const Navbar = () => {
+  const dispatch = useDispatch();
+  const sidebarStatus = useSelector(selectSidebarStatus);
+  console.log(sidebarStatus);
+
   return (
     <NavbarWrapper className='d-flex align-items-center'>
       <div className='container w-100'>
         <div className='navbar-content'>
           <div className='brand-and-toggler d-flex align-items-center justify-content-between'>
             <Link to = "/" className='navbar-brand text-white no-wrapp'>x<span>Game</span>Tracker</Link>
-            <button type='button' className='navbar-show-btn text-white'>
+            <button type='button' className='navbar-show-btn text-white' onClick={() => dispatch(setSidebarOn())}>
               <HiMenuAlt3 size={ 25 } />
             </button>
           </div>
 
-          <div className={'navbar-collapse'}>
-            <button type='button' className='navbar-hide-btn'>
+          <div className={`navbar-collapse ${ sidebarStatus ? 'show' : ' ' }`}>
+            <button type='button' className='navbar-hide-btn' onClick={() => dispatch(setSidebarOff())}>
               <MdClose size={ 25 }></MdClose>
             </button>
 
@@ -137,6 +143,7 @@ const NavbarWrapper = styled.div`
     transition: var(--transition-default);
     z-index: 999;
 
+    // after the show sidebar is triggered
     &.show{
       transform: translateX(0);
     }
