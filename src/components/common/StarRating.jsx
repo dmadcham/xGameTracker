@@ -1,13 +1,31 @@
 import styled from 'styled-components';
+import { FaRegStar, FaStarHalfAlt, FaStar } from 'react-icons/fa';
+import PropTypes from 'prop-types';
 
-const StarRating = () => {
+const StarRating = ({ rating }) => {
+    const stars = Array.from({ length: 5}, (_, idx) => {
+        const val = idx + 0.5;
+        return (
+            <li key={ idx }>
+                {
+                    rating >= idx + 1 ? (<FaStar />): rating > val ? (<FaStarHalfAlt />) : (<FaRegStar />)
+                }
+            </li>
+        )
+    })
+
     return (
-        <StarRatingWrapper>
+        <StarRatingWrapper className='rating d-flex align-items-start text-green'>
+            { stars }
         </StarRatingWrapper>
     )
 }
 
 export default StarRating;
+
+StarRating.propTypes = {
+    rating: PropTypes.number
+}
 
 const StarRatingWrapper = styled.ul`
     position: absolute;

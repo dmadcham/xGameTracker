@@ -1,13 +1,51 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+import { FaRegStar } from 'react-icons/fa';
+import PropTypes from 'prop-types';
+import { StarRating } from '../common';
 
-const GameItem = () => {
+const GameItem = ({ gameItem }) => {
+  console.log(gameItem);
   return (
-    <GameItemWrapper>
+    <GameItemWrapper className='card'>
+      <div className='card-top img-fit-cover'>
+        <img src={ gameItem?.background_image } alt={ gameItem?.name } />
+        <StarRating rating={ gameItem?.rating } />
+        <div className='ratings-count'>
+          { gameItem?.ratings_count } <FaRegStar className='ms-1' size = { 12 } />
+        </div>
+      </div>
+        <div className='card-bottom'>
+          <h4 className='text-white text-uppercase card-title'>
+            { gameItem?.name }
+          </h4>
+          <div className='block-wrap d-felx align-items-end justify-content-between'>
+            <div className='details-group'>
+              {/* Fecha lanzamiento */}
+              <div className='details-item d-flex align-items-center'>
+                <p className='details-item-name fw-6'>Relase Date: &nbsp;</p>
+                <p className='details-item-value'> { gameItem?.released }</p>
+              </div>
+              {/* Fecha ultima actualización */}
+              <div className='details-item d-flex align-items-center'>
+                <p className='details-item-name fw-6'>Updated: &nbsp;</p>
+                <p className='details-item-value'> { gameItem?.updated }</p>
+              </div>            
+            </div>
+            <Link to = { `/games/${gameItem?.id }`} className='card-button text-uppercase'>ver más</Link>
+          </div>
+        </div>
+        
+
     </GameItemWrapper>
   )
 }
 
 export default GameItem;
+
+GameItem.propTypes = {
+  gameItem: PropTypes.object
+}
 
 const GameItemWrapper = styled.div`
   display: flex;
@@ -61,6 +99,7 @@ const GameItemWrapper = styled.div`
       text-align: center;
       border: 1px solid var(--clr-green-normal);
       padding: 0px 16px;
+      margin: 20px 0px 0px;
       min-width: 108px;
       color: var(--clr-white);
       font-weight: 600;
