@@ -33,7 +33,7 @@ const HomePage = () => {
         <div className='container'>
           <Title titleName={{ firstText: 'TOP', secondText: 'populares'}}></Title>
           {
-           gamesStatus === STATUS.LOADING ? <Preloader /> : games?. length > 0 ? renderedPopularGames : '¡No se han encontrado juegos!'
+           gamesStatus === STATUS.LOADING ? <Preloader /> : games?. length > 0 ? renderedPopularGames : 'No se ha encontrado ningún juego :('
           }
         </div>
       </section>
