@@ -1,8 +1,11 @@
 import styled from 'styled-components';
+import { loader } from '../../utils/images';
 
+// Gif que se muestra mientras cargan las imagenes
 const Preloader = () => {
   return (
-    <PreloaderWrapper>
+    <PreloaderWrapper className='d-flex align-items-center justify-content-center'>
+      <img src= { loader } alt="preloader" />
     </PreloaderWrapper>
   )
 }
