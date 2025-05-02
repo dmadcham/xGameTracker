@@ -26,7 +26,7 @@ const FooterWrapper = styled.footer`
     margin-bottom: 18px;
 
     span{
-      color: var(--clr-green-normal);
+      color: var(--clr-blue-normal);
     }
   }
 

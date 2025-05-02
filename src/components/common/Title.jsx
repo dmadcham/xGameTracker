@@ -44,14 +44,14 @@ const TitleWrapper = styled.div`
     width: 160px;
     margin-right: auto;
     margin-left: auto;
-    background-color: var(--clr-green-normal);
+    background-color: var(--clr-blue-normal);
     position: relative;
 
     &::after{
       content: "";
       position: absolute;
       left: -5px;
-      border-right: 6px solid var(--clr-green-normal);
+      border-right: 6px solid var(--clr-blue-normal);
       border-bottom: 3.5px solid transparent;
       border-top: 3.5px solid transparent;
     }
@@ -60,7 +60,7 @@ const TitleWrapper = styled.div`
       content: "";
       position: absolute;
       right: -6px;
-      border-left: 6px solid var(--clr-green-normal);
+      border-left: 6px solid var(--clr-blue-normal);
       border-bottom: 3.5px solid transparent;
       border-top: 3.5px solid transparent;
     }

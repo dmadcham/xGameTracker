@@ -65,7 +65,7 @@ const HomeWrapper = styled.div`
       letter-spacing: 0.09em;
 
       span{
-        color: var(--clr-green-normal);
+        color: var(--clr-blue-normal);
         font-family: var(--font-family-right);
       }
     }

@@ -10,8 +10,7 @@ const Banner = () => {
         <div className='banner-content w-100 container text-white'>
           <div className='banner-badge'>xGameTracker</div>
           <h1 className='banner-title text-uppercase'>El Tracker de videojuegos que todo gamer necesita</h1>
-          <p className='lead-text'>xGameTracker es una plataforma que te permite seguir el progreso de tus videojuegos favoritos
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita corporis ad minus eius odio quo sint aspernatur quasi amet voluptate.
+          <p className='lead-text'>xGameTracker es una plataforma que te permite seguir el progreso de tus videojuegos favoritos. Además de poder valorarlos y ver las valoraciones de otros usuarios.
           </p>
 
         </div>
@@ -25,7 +24,7 @@ const BannerWrapper = styled.div`
     min-height: 768px;
 
     .banner-badge{
-      background-color: var(--clr-green-normal);
+      background-color: var(--clr-blue-normal);
       padding: 4px 16px;
       font-weight: 600;
       font-size: 20px;
@@ -54,7 +53,7 @@ const BannerWrapper = styled.div`
       font-size: 16px;
       font-weight: 600;
       text-transform: uppercase;
-      border: 2px solid var(--clr-green-normal);
+      border: 2px solid var(--clr-blue-normal);
       margin-top: 33px;
 
       .btn-icon{
@@ -62,7 +61,7 @@ const BannerWrapper = styled.div`
       }
 
       &:hover{
-        background-color: var(--clr-green-normal);
+        background-color: var(--clr-blue-normal);
         .btn-text{
           color: var(--clr-white);
         }

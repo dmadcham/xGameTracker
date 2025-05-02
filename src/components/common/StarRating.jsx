@@ -8,14 +8,14 @@ const StarRating = ({ rating }) => {
         return (
             <li key={ idx }>
                 {
-                    rating >= idx + 1 ? (<FaStar />): rating > val ? (<FaStarHalfAlt />) : (<FaRegStar />)
+                    rating >= idx + 1 ? (<FaStar />): rating >= val ? (<FaStarHalfAlt />) : (<FaRegStar />)
                 }
             </li>
         )
     })
 
     return (
-        <StarRatingWrapper className='rating d-flex align-items-start text-green'>
+        <StarRatingWrapper className='rating d-flex align-items-start text-blue'>
             { stars }
         </StarRatingWrapper>
     )

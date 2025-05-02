@@ -10,7 +10,7 @@
     --clr-violet-dark-active: rgb(7, 5, 27);
     --clr-violet-darker: #050415;
     --clr-violet-light: #100E2B;
-    --clr-green-normal: #009F9D;
+    --clr-blue-normal: #009F9D;
     --clr-pink-normal: #B9198E;
     --font-family-barlow: 'Barlow', sans-serif;
     --font-family-poppins: 'Poppins', sans-serif;
@@ -120,13 +120,13 @@ input, textarea, select{
 .text-decoration-none{ text-decoration: none;}
 .text-pink{color: var(--clr-pink-normal);}
 .text-dark{color: var(--clr-dark);}
-.text-green{color: var(--clr-green-normal);}
+.text-blue{color: var(--clr-blue-normal);}
 
 .bg-white{background-color: var(--clr-white);}
 .bg-black{background-color: var(--clr-black);}
 .bg-pink{background-color: var(--clr-pink-normal);}
 .bg-dark{background-color: var(--clr-dark);}
-.bg-green{background-color: var(--clr-green-normal);}
+.bg-blue{background-color: var(--clr-blue-normal);}
 
 /* font weights */
 .fw-1{font-weight: 100;}
@@ -304,7 +304,7 @@ input, textarea, select{
   font-size: 20px;
   font-weight: 700;
   letter-spacing: 0.15em;
-  background-color: var(--clr-green-normal);
+  background-color: var(--clr-blue-normal);
   color: var(--clr-white);
   position: relative;
   z-index: 5;

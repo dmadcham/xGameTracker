@@ -14,7 +14,7 @@ background-color: var(--clr-violet-dark-active);
   .value-404{
     font-size: 60px;
     font-weight: 800;
-    color: var(--clr-green-normal);
+    color: var(--clr-blue-normal);
   }
   .not-found-text{
     font-size: 24px;

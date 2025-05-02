@@ -97,7 +97,7 @@ const GameItemWrapper = styled.div`
     .card-button{
       height: 34px;
       text-align: center;
-      border: 1px solid var(--clr-green-normal);
+      border: 1px solid var(--clr-blue-normal);
       padding: 0px 16px;
       margin: 20px 0px 0px;
       min-width: 108px;
@@ -109,7 +109,7 @@ const GameItemWrapper = styled.div`
       transition: var(--transition-default);
 
       &:hover{
-        background-color: var(--clr-green-normal);
+        background-color: var(--clr-blue-normal);
       }
     }
   }
