@@ -31,9 +31,11 @@ const HomePage = () => {
 
       <section className='section sc-popular'>
         <div className='container'>
-          <Title titleName={{ firstText: 'TOP', secondText: 'populares'}}></Title>
+          <Title titleName={{ 
+            firstText: 'TOP', 
+            secondText: 'populares'}} />
           {
-           gamesStatus === STATUS.LOADING ? <Preloader /> : games?. length > 0 ? renderedPopularGames : 'No se ha encontrado ningún juego :('
+           gamesStatus === STATUS.LOADING ? <Preloader /> : games?. length > 0 ? renderedPopularGames : <p className='text-white lead-text text-center'>No se ha encontrado ningún juego. Prueba de nuevo más tarde.</p>
           }
         </div>
       </section>

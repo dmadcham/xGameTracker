@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 import { StarRating } from '../common';
 
 const GameItem = ({ gameItem }) => {
-  console.log(gameItem);
   return (
     <GameItemWrapper className='card'>
       <div className='card-top img-fit-cover'>
@@ -23,12 +22,12 @@ const GameItem = ({ gameItem }) => {
             <div className='details-group'>
               {/* Fecha lanzamiento */}
               <div className='details-item d-flex align-items-center'>
-                <p className='details-item-name fw-6'>Relase Date: &nbsp;</p>
+                <p className='details-item-name fw-6'>Fecha de lanzamiento: &nbsp;</p>
                 <p className='details-item-value'> { gameItem?.released }</p>
               </div>
               {/* Fecha ultima actualización */}
               <div className='details-item d-flex align-items-center'>
-                <p className='details-item-name fw-6'>Updated: &nbsp;</p>
+                <p className='details-item-name fw-6'>Última actualización: &nbsp;</p>
                 <p className='details-item-value'> { gameItem?.updated }</p>
               </div>            
             </div>
