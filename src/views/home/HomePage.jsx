@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Banner, ImageSlider, Preloader, Title } from '../../components/common/index';
+import { Banner, ImageSlider, Preloader, Tabs, Title } from '../../components/common/index';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectAllGames, selectAllGamesStatus } from '../../redux/store/gameSlice';
 import { useEffect } from 'react';
@@ -7,15 +7,21 @@ import { fetchAsyncGames } from '../../redux/utils/gameUtils';
 import { STATUS } from '../../utils/status';
 import { GameList } from '../../components/game/index';
 import { Link } from 'react-router-dom';
+import { join_image } from '../../utils/images';
+import { selectAllGenres, selectAllGenresStatus } from '../../redux/store/genreSlice';
+import { fetchAsyncGenres } from '../../redux/utils/genreUtils';
 
 const HomePage = () => {
 
   const dispatch = useDispatch();
   const games = useSelector(selectAllGames);
   const gamesStatus = useSelector(selectAllGamesStatus);
+  const genres = useSelector(selectAllGenres);
+  const genresStatus = useSelector(selectAllGenresStatus);
 
   useEffect(() => {
     dispatch(fetchAsyncGames());
+    dispatch(fetchAsyncGenres());
   }, []);
 
   const renderedPopularGames = <>
@@ -41,6 +47,32 @@ const HomePage = () => {
       </section>
 
       <ImageSlider />
+
+      <section className='section sc-join d-flex align-items-center' style={{
+        background: `linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url(${join_image}) center/cover no-repeat`
+      }}>
+        <div className='container w-100'>
+          <div className='join-content text-white mx-auto text-center'>
+            <h2 className='join-title mb-3'> ÚNETE A LA <span>COMUNIDAD</span></h2>
+            <p className='lead-text'> Únete a nuestra comunidad de Discord, hecha por y para gamers. Todo el mundo es bienvenido, sin importar el juego al que juegues, estamos aquí para pasarlo en grande!</p>
+            <button type="button" className='section-btn mt-4'>Unirse a discord</button>
+          </div>
+        </div>
+      </section>
+
+      <section className='section sc-genres'>
+        <div className='container'>
+          <Title titleName={{
+            firstText: "Top",
+            secondText: "Géneros"
+          }} />
+          {
+            genresStatus === STATUS.LOADING ? <Preloader /> : genres?. length > 0 ? <Tabs sliceValue = { 9 } data = { genres } /> : <p className='text-white lead-text text-center'>No se ha encontrado ningún género. Prueba de nuevo más tarde.</p>
+          }
+        </div>
+      </section>
+
     </HomeWrapper>
   )
 }
