@@ -19,6 +19,7 @@
     "react-redux": "^9.2.0",
     "react-router-dom": "^7.5.2",
     "react-slick": "^0.30.3",
+    "react-tabs": "^6.1.0",
     "slick-carousel": "^1.8.1",
     "styled-components": "^6.1.17",
     "xgametracker": "file:"

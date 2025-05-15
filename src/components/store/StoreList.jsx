@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const StoreList = () => {
+const StoreList = ( { stores } ) => {
     return (
         <StoreListWrapper>
         </StoreListWrapper>
