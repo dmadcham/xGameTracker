@@ -10,7 +10,7 @@ const StoreItem = ({ storeItem }) => {
       </div>
       <div className="card-text d-flex flex-column justify-content-center">
         <h5 className="card-title text-uppercase fw-7">
-          <Link className="text-white" to={`stores/${storeItem.id}`}>
+          <Link className="text-white" to={`/stores/${storeItem.id}`}>
             {storeItem?.name}
           </Link>
         </h5>
