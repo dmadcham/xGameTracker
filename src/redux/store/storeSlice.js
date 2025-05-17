@@ -45,7 +45,7 @@ const storeSlice = createSlice({
 
 export const selectAllStores = (state) => state.store.stores.results;
 export const selectAllStoresStatus = (state) => state.store.storesStatus;
-export const selectSingleStores = (state) => state.store.storesSingle;
-export const selectSingleStoresStatus = (state) => state.store.storesSingleStatus;
+export const selectSingleStore = (state) => state.store.storesSingle;
+export const selectSingleStoreStatus = (state) => state.store.storesSingleStatus;
 
 export default storeSlice.reducer;

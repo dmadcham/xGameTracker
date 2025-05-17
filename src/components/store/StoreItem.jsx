@@ -17,7 +17,7 @@ const StoreItem = ({ storeItem }) => {
         <ul className="card-info">
             <li>
                 <span className="fw-7">Dominio: </span>
-                <a href={ "https://www." + storeItem?.domain}>{ storeItem?.domain }</a>
+                <a href={ "https://" + storeItem?.domain}>{ storeItem?.domain }</a>
             </li>
             <li>
                 <span className="fw-7">Juegos: </span>
