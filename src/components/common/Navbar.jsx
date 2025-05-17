@@ -44,24 +44,24 @@ const Navbar = () => {
             </ul>
 
             <ul className='connect-list d-flex justify-content-center algin-items-center mt-5 flex-wrap'>
-              <li className='text-uppercase fw-7 w-100 connect-text mb-2'>Connect</li>
+              <li className='text-uppercase fw-7 w-100 connect-text mb-2'>Conéctate</li>
               <li className='connect-item'>
                 <Link to = "/" className='connect-link'>
                   <FaRss />
                 </Link>
               </li>
               <li className='connect-item'>
-                <Link to = "/" className='connect-link'>
+                <Link to = "https://store.steampowered.com/" className='connect-link'>
                   <FaSteam size={ 18 } />
                 </Link>
               </li>
               <li className='connect-item'>
-                <Link to = "/" className='connect-link'>
+                <Link to = "https://www.twitch.tv/" className='connect-link'>
                   <FaTwitch size={ 18 }/>
                 </Link>
               </li>
               <li className='connect-item'>
-                <Link to = "/" className='connect-link'>
+                <Link to = "https://www.youtube.com/" className='connect-link'>
                   <FaYoutube size={ 18 }/>
                 </Link>
               </li>
