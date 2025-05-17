@@ -22,6 +22,7 @@
     "react-tabs": "^6.1.0",
     "slick-carousel": "^1.8.1",
     "styled-components": "^6.1.17",
+    "use-react-router-breadcrumbs": "^4.0.1",
     "xgametracker": "file:"
   },
   "devDependencies": {

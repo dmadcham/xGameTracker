@@ -85,7 +85,7 @@ const NavbarWrapper = styled.div`
     font-size: 32px;
 
     span{
-      color: var(--clr-green-normal);
+      color: var(--clr-blue-normal);
     }
   }
 
