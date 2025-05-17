@@ -1,8 +1,14 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const PageNotFound = () => {
   return (
-    <PageNotFoundWrapper>
+    <PageNotFoundWrapper className='section'>
+      <div className='container text-center'>
+        <p className='value-404'>404</p>
+        <p className='not-found-text text-uppercase text-white'>Página no encontrada</p>
+        <Link to = "/" className="section-btn" > Volver al inicio </Link>
+      </div>
     </PageNotFoundWrapper>
   )
 }
