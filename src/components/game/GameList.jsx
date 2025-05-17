@@ -1,29 +1,25 @@
-import styled from 'styled-components';
-import GameItem from './GameItem';
-import PropTypes from 'prop-types';
+import styled from "styled-components";
+import GameItem from "./GameItem";
+import PropTypes from "prop-types";
 
-const GameList = ({ games, sliceValue = games.length}) => {
-  // Por defecto se muestran todos los juegos obtendios de la API si sliceValue no tiene valor 
+const GameList = ({ games, sliceValue = games.length }) => {
+  // Por defecto se muestran todos los juegos obtendios de la API si sliceValue no tiene valor
   return (
     <GameListWrapper>
-      <div className='card-list'>
-        {
-          games?.slice(0, sliceValue).map(item => (
-            <GameItem key={ item.id } gameItem = { item } />
-          ))
-        }
+      <div className="card-list">
+        {games?.slice(0, sliceValue).map((item) => (
+          <GameItem key={item.id} gameItem={item} />
+        ))}
       </div>
     </GameListWrapper>
-  )
-}
+  );
+};
 
 export default GameList;
 
 GameList.propTypes = {
   games: PropTypes.array,
-  sliceValue: PropTypes.number
-}
+  sliceValue: PropTypes.number,
+};
 
-const GameListWrapper = styled.div`
-  
-`;
+const GameListWrapper = styled.div``;
