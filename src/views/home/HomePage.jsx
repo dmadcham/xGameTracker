@@ -100,9 +100,11 @@ const HomePage = () => {
               Todo el mundo es bienvenido, sin importar el juego al que juegues,
               estamos aquí para pasarlo en grande!
             </p>
+            <Link to={"https://discord.com/invite/gT9JuNvTe8"}>
             <button type="button" className="section-btn mt-4">
               Unirse a discord
             </button>
+            </Link>
           </div>
         </div>
       </section>
