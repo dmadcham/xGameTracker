@@ -13,6 +13,7 @@ import {
 const Navbar = () => {
   const dispatch = useDispatch();
   const sidebarStatus = useSelector(selectSidebarStatus);
+  const isAutenticated = !!localStorage.getItem("token");
 
   return (
     <NavbarWrapper className="d-flex align-items-center">
@@ -66,7 +67,9 @@ const Navbar = () => {
             <ul className="connect-list d-flex justify-content-center align-items-center mt-5 flex-wrap">
               <li className="text-uppercase fw-7 w-100 connect-text mb-2">
                 <Link to="/login" className="connect-link">
-                  Conéctate
+                  {
+                    isAutenticated === true ? "Conectado" : "Conéctate"
+                  }
                 </Link>
               </li>
               <li className="connect-item">
