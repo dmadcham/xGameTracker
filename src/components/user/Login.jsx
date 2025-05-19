@@ -18,8 +18,8 @@ const Login = () => {
     try {
       const res = await authApi.post("/login", data);
       setMsg(res.data.message);
-      // Guardar el token o datos de sesión si lo usas:
-      // localStorage.setItem("token", res.data.token);
+      // Se guarda el token de sesión.
+      localStorage.setItem("token", res.data.token);
 
       // Redirigir al usuario a otra página tras login
       // Esperar 3 segundos antes redirigir (para dar tiempo a leer el mensaje);
