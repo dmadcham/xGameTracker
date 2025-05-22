@@ -76,7 +76,7 @@ const Favorites = () => {
           renderedFavoriteGames
         ) : (
           <p className="text-white lead-text text-center">
-            No se ha encontrado ningún juego. Prueba de nuevo más tarde.
+            Aún no tienes ningún juego favorito.
           </p>
           
         )}
