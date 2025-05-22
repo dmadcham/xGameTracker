@@ -5,6 +5,7 @@ require("dotenv").config();
 const jwt = require("jsonwebtoken");
 const JWT_SECRET = process.env.JWT_SECRET || "secret";
 const authMiddleware = require("../middleware/auth");
+const bcrypt = require("bcrypt");
 
 // Registro
 router.post("/register", async (req, res) => {
@@ -22,10 +23,13 @@ router.post("/register", async (req, res) => {
     if (existing.length > 0)
       return res.status(409).json({ message: "Usuario ya exsiste" });
 
+    // Cifrado de la contraseña
+    const hashedPassword = await bcrypt.hash(password, 10);
+
     // Sentencia para insertar un nuevo usuario
     await pool.query("INSERT INTO users (username, password) VALUES (?, ?)", [
       username,
-      password,
+      hashedPassword,
     ]);
     // Mensaje de confirmación
     res.status(201).json({
@@ -46,13 +50,17 @@ router.post("/login", async (req, res) => {
   if (!username || !password)
     return res.status(400).json({ message: "Faltan datos" });
   try {
-    // Sentencia para buscar si los datos introducidos coinciden con un usuario y su contraseña
+    // Sentencia para buscar si el usuario introducido existe
     const [rows] = await pool.query(
-      "SELECT * FROM users WHERE username = ? AND password = ?",
-      [username, password]
+      "SELECT * FROM users WHERE username = ?",
+      [username]
     );
-    // Comprueba si el usuario y contraseña son válidas
     if (rows.length === 0)
+      return res.status(401).json({ message: "Credenciales inválidas" });
+
+    // Compara la contraseña introducida con la cifrada
+    const validPassword = await bcrypt.compare(password, rows[0].password);
+    if (!validPassword)
       return res.status(401).json({ message: "Credenciales inválidas" });
 
     // Mensaje de confirmación
