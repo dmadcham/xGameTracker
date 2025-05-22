@@ -4,6 +4,7 @@ import gameReducer from "./gameSlice";
 import creatorReducer from "./creatorSlice";
 import sidebarReducer from "./sidebarSlice";
 import storeReducer from "./storeSlice";
+import favReducer from "./favSlice";
 
 const store = configureStore({
     reducer: {
@@ -12,6 +13,7 @@ const store = configureStore({
         creator: creatorReducer,
         sidebar: sidebarReducer,
         store: storeReducer,
+        favorites: favReducer,
     }
 
 });

@@ -7,3 +7,4 @@ export { default as ViewStoreDetails } from "./store/StoreDetailsPage";
 export { default as ViewCreatorAll } from "./creator/CreatorAllPage";
 export { default as ViewLogin } from "./user/LoginPage";
 export { default as ViewRegister } from "./user/RegisterPage";
+export { default as ViewDashboard } from "./user/DashboardPage";

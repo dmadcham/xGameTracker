@@ -19,6 +19,7 @@ const gameSlice = createSlice({
     });
 
     builder.addCase(fetchAsyncGames.fulfilled, (state, action) => {
+      console.log("IDs favoritos guardados en el estado:", action.payload);
       state.games = action.payload;
       state.gamesStatus = STATUS.SUCCEEDED;
     });

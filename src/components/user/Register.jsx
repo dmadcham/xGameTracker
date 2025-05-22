@@ -16,7 +16,7 @@ const Register = () => {
 
   const onSubmit = async (data) => {
     try {
-      const res = await authApi.post("/register", data);
+      const res = await authApi.post("register", data);
       setMsg(res.data.message);
 
       // Esperar 3 segundos antes redirigir (para dar tiempo a leer el mensaje);
@@ -79,7 +79,7 @@ const Register = () => {
           <p
             style={{
               color: msg.toLowerCase().includes("correctamente")
-                ? "lightgreen"
+                ? "var(--clr-blue-normal)"
                 : "var(--clr-pink-normal)",
               marginTop: "1rem",
               fontWeight: "bold",

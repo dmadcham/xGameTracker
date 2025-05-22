@@ -1,19 +1,28 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { HiMenuAlt3 } from "react-icons/hi";
-import { FaUserAstronaut, FaSteam, FaTwitch, FaYoutube } from "react-icons/fa";
-import { MdClose } from "react-icons/md";
+import { FaUserAstronaut, FaTwitch, FaYoutube } from "react-icons/fa";
+import { MdClose, MdLogout } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
 import {
   selectSidebarStatus,
   setSidebarOff,
   setSidebarOn,
 } from "../../redux/store/sidebarSlice";
+import { clearFavorites } from "../../redux/store/favSlice";
 
 const Navbar = () => {
   const dispatch = useDispatch();
   const sidebarStatus = useSelector(selectSidebarStatus);
   const isAutenticated = !!localStorage.getItem("token");
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("username");
+    dispatch(clearFavorites());
+    navigate("/login");
+  }
 
   return (
     <NavbarWrapper className="d-flex align-items-center">
@@ -66,25 +75,23 @@ const Navbar = () => {
 
             <ul className="connect-list d-flex justify-content-center align-items-center mt-5 flex-wrap">
               <li className="text-uppercase fw-7 w-100 connect-text mb-2">
-                <Link to="/login" className="connect-link">
-                  {
-                    isAutenticated === true ? "Conectado" : "Conéctate"
-                  }
-                </Link>
+                { isAutenticated ? (
+                  <Link className="connect-link" onClick={handleLogout} to={"/"} >
+                    Salir
+                  </Link>
+                ) : (
+                  <Link className="connect-link" to="/login" >
+                    Conéctate
+                  </Link>
+                )}
+                
               </li>
               <li className="connect-item">
-                <Link to="/login" className="connect-link">
-                  <FaUserAstronaut />
-                </Link>
+                  <Link className="connect-link" to={isAutenticated ? "/dashboard" : "/login"} >
+                    <FaUserAstronaut />
+                  </Link>
               </li>
-              <li className="connect-item">
-                <Link
-                  to="https://store.steampowered.com/"
-                  className="connect-link"
-                >
-                  <FaSteam size={18} />
-                </Link>
-              </li>
+              
               <li className="connect-item">
                 <Link to="https://www.twitch.tv/" className="connect-link">
                   <FaTwitch size={18} />
@@ -94,6 +101,14 @@ const Navbar = () => {
                 <Link to="https://www.youtube.com/" className="connect-link">
                   <FaYoutube size={18} />
                 </Link>
+              </li>
+              <li className="connect-item">
+                { isAutenticated ? (
+                  <Link className="connect-link" onClick={handleLogout} to={"/"} 
+                >
+                  <MdLogout size={18} />
+                </Link>
+                ) : "" }                
               </li>
             </ul>
           </div>

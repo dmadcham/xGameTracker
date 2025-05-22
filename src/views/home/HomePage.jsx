@@ -44,6 +44,8 @@ const HomePage = () => {
     dispatch(fetchAsyncStores());
   }, []);
 
+  console.log("Games: ", games);
+
   const renderedPopularGames = (
     <>
       <GameList sliceValue={9} games={games} />

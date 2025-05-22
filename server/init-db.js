@@ -3,11 +3,11 @@ require("dotenv").config();
 
 async function init() {
   const conn = await mysql.createConnection({
-    host: process.env.DB_HOST,          // localhost
-    user: process.env.DB_USER,          // root
-    password: process.env.DB_PASSWORD,  // 1234
-    database: process.env.DB_NAME,      // testdb
-    port: process.env.DB_PORT           // 3306
+    host: process.env.DB_HOST, // localhost
+    user: process.env.DB_USER, // root
+    password: process.env.DB_PASSWORD, // 1234
+    database: process.env.DB_NAME, // testdb
+    port: process.env.DB_PORT, // 3306
   });
 
   await conn.query(`
@@ -18,7 +18,17 @@ async function init() {
     )
   `);
 
+  await conn.query(`
+    CREATE TABLE IF NOT EXISTS favorites (
+      id INT AUTO_INCREMENT PRIMARY KEY,
+      user_id INT NOT NULL,
+      game_id INT NOT NULL,
+      FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+    )
+  `);
+
   console.log('Tabla "users" creada (si no existía)');
+  console.log('Tabla "favorites" creada (si no existía)');
   await conn.end();
 }
 

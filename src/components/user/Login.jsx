@@ -16,15 +16,19 @@ const Login = () => {
 
   const onSubmit = async (data) => {
     try {
-      const res = await authApi.post("/login", data);
+      const res = await authApi.post("login", data);
       setMsg(res.data.message);
-      // Se guarda el token de sesión.
+      // Se borra el login anterior (si lo hay).
+      localStorage.removeItem("token");
+      localStorage.removeItem("username");
+      // Se guardan los datos de sesión (token y username).
       localStorage.setItem("token", res.data.token);
+      localStorage.setItem("username", res.data.username);
 
       // Redirigir al usuario a otra página tras login
       // Esperar 3 segundos antes redirigir (para dar tiempo a leer el mensaje);
       setTimeout(() => {
-        navigate("/");
+        navigate("/dashboard");
       }, 3000);
     } catch (err) {
       setMsg(
@@ -82,7 +86,7 @@ const Login = () => {
           <p
             style={{
               color: msg.toLowerCase().includes("exitoso")
-                ? "lightgreen"
+                ? "var(--clr-blue-normal)"
                 : "var(--clr-pink-normal)",
               marginTop: "1rem",
               fontWeight: "bold",

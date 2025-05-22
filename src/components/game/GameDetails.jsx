@@ -1,17 +1,43 @@
 import styled from "styled-components";
-import { FaClock, FaDesktop, FaCog, FaTags, FaGlobe } from "react-icons/fa";
+import {
+  FaClock,
+  FaDesktop,
+  FaCog,
+  FaTags,
+  FaGlobe,
+  FaHeart,
+} from "react-icons/fa";
 import PropTypes from "prop-types";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import { StoreItem } from "../store";
+import { useDispatch, useSelector } from "react-redux";
+import { addFavorite, fetchAsyncFavorites, removeFavorite } from "../../redux/utils/favUtils";
+import { selectAllFavorites } from "../../redux/store/favSlice";
 
 const GameDetails = ({ gameData }) => {
+  const dispatch = useDispatch();
+  const favorites = useSelector(selectAllFavorites);
+  const isFavorite = favorites.includes(gameData.id);
+
   let platforms = gameData?.platforms?.map(
     (platform) => platform.platform.name
   );
   let developers = gameData?.developers?.map((developer) => developer.name);
   let genres = gameData?.genres?.map((genre) => genre.name);
   let publishers = gameData?.publishers?.map((publisher) => publisher.name);
+
+  const handleFavoriteClick = () => {
+    if (isFavorite) {
+      dispatch(removeFavorite(gameData.id)).then(() => {
+        dispatch(fetchAsyncFavorites());
+      });
+    } else {
+      dispatch(addFavorite(gameData.id)).then(() => {
+        dispatch(fetchAsyncFavorites());
+      });
+    }
+  };
 
   return (
     <GameDetailsWrapper>
@@ -48,7 +74,6 @@ const GameDetails = ({ gameData }) => {
                 </span>
               </div>
               <span className="item-right item-value fw-4">
-                {" "}
                 {gameData?.released}
               </span>
             </li>
@@ -62,7 +87,6 @@ const GameDetails = ({ gameData }) => {
                 </span>
               </div>
               <span className="item-right item-value fw-4">
-                {" "}
                 {platforms?.join(", ")}
               </span>
             </li>
@@ -76,7 +100,6 @@ const GameDetails = ({ gameData }) => {
                 </span>
               </div>
               <span className="item-right item-value fw-4">
-                {" "}
                 {developers?.join(", ")}
               </span>
             </li>
@@ -88,7 +111,6 @@ const GameDetails = ({ gameData }) => {
                 <span className="item-title text-uppercase fw-6">Géneros:</span>
               </div>
               <span className="item-right item-value fw-4">
-                {" "}
                 {genres?.join(", ")}
               </span>
             </li>
@@ -102,60 +124,72 @@ const GameDetails = ({ gameData }) => {
                 </span>
               </div>
               <span className="item-right item-value fw-4">
-                {" "}
                 {publishers?.join(", ")}
               </span>
             </li>
+            <li className="list-group-item text-white d-flex align-items-center flex-wrap">
+              <div className="item-left d-flex align-items-center">
+                <span className="item-icon d-flex align-items-center justify-content-start me-2">
+                  <FaHeart size={20} />
+                </span>
+                <span
+                  className="item-title text-uppercase fw-6"
+                  onClick={handleFavoriteClick}
+                  style={{ cursor: "pointer" }}
+                >
+                  {isFavorite ? "Eliminar de favoritos" : "Añadir a favoritos"}
+                </span>
+              </div>
+            </li>
           </ul>
         </div>
-
       </div>
-      
-        {/* Tabs */}
-        <Tabs>
-          <TabList>
-            <Tab>Descripción</Tab>
-            <Tab>Plataformas</Tab>
-            <Tab>Tiendas</Tab>
-          </TabList>
 
-          <TabPanel>
-            <h3 className="text-white mb-3">Descripción</h3>
-            <div
-              className="para-text"
-              dangerouslySetInnerHTML={{ __html: gameData?.description }}
-            ></div>
-          </TabPanel>
-          <TabPanel>
-            <h3 className="text-white mb-3">Plataformas</h3>
-            <div className="platforms-list card-list">
-              {gameData?.platforms?.map((item) => {
-                return (
-                  <div
-                    className="platform-item text-white"
-                    key={item?.platform?.id}
-                  >
-                    <p className="platform-name mb-2">{item?.platform?.name}</p>
-                    <div className="platform-img-wrapper img-fit-cover">
-                      <img
-                        src={item?.platform?.image_background}
-                        alt={item?.platform?.name}
-                      />
-                    </div>
+      {/* Tabs */}
+      <Tabs>
+        <TabList>
+          <Tab>Descripción</Tab>
+          <Tab>Plataformas</Tab>
+          <Tab>Tiendas</Tab>
+        </TabList>
+
+        <TabPanel>
+          <h3 className="text-white mb-3">Descripción</h3>
+          <div
+            className="para-text"
+            dangerouslySetInnerHTML={{ __html: gameData?.description }}
+          ></div>
+        </TabPanel>
+        <TabPanel>
+          <h3 className="text-white mb-3">Plataformas</h3>
+          <div className="platforms-list card-list">
+            {gameData?.platforms?.map((item) => {
+              return (
+                <div
+                  className="platform-item text-white"
+                  key={item?.platform?.id}
+                >
+                  <p className="platform-name mb-2">{item?.platform?.name}</p>
+                  <div className="platform-img-wrapper img-fit-cover">
+                    <img
+                      src={item?.platform?.image_background}
+                      alt={item?.platform?.name}
+                    />
                   </div>
-                );
-              })}
-            </div>
-          </TabPanel>
-          <TabPanel>
-            <h3 className="text-white mb-3">Tiendas disponibles</h3>
-            <div className="card-list">
-              {gameData?.stores?.map((item) => (
-                <StoreItem key={item?.store?.id} storeItem={item?.store} />
-              ))}
-            </div>
-          </TabPanel>
-        </Tabs>
+                </div>
+              );
+            })}
+          </div>
+        </TabPanel>
+        <TabPanel>
+          <h3 className="text-white mb-3">Tiendas disponibles</h3>
+          <div className="card-list">
+            {gameData?.stores?.map((item) => (
+              <StoreItem key={item?.store?.id} storeItem={item?.store} />
+            ))}
+          </div>
+        </TabPanel>
+      </Tabs>
     </GameDetailsWrapper>
   );
 };

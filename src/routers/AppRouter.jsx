@@ -9,9 +9,11 @@ import {
   ViewCreatorAll,
   ViewLogin,
   ViewRegister,
+  ViewDashboard
 } from "../views/index";
 import BaseLayout from "../layouts/BaseLayout";
 import PublicRoute from "./PublicRoute";
+import ProtectedRoute from "./ProtectedRoute";
 
 const AppRouter = () => {
   return (
@@ -41,6 +43,15 @@ const AppRouter = () => {
               <PublicRoute>
                 <ViewRegister />
               </PublicRoute>
+            }
+          />
+
+          <Route 
+            path="dashboard"
+            element={
+              <ProtectedRoute>
+                <ViewDashboard />
+              </ProtectedRoute>
             }
           />
 
