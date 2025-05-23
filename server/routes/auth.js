@@ -111,7 +111,6 @@ router.post("/favorites", authMiddleware, async (req, res) => {
 // Obtener los juegos favoritos de un usuario
 router.get("/favorites", authMiddleware, async (req, res) => {
   const userId = req.user.id;
-  console.log("userId: ", userId);
   try {
     // Sentencia para obtener los juegos favoritos de un usuario
     const [rows] = await pool.query(
@@ -119,7 +118,6 @@ router.get("/favorites", authMiddleware, async (req, res) => {
       [userId]
     );
     // Mensaje de confirmación
-    console.log(rows);
     res.status(200).json(rows);
   } catch (err) {
     console.error(err);
@@ -148,6 +146,21 @@ router.delete("/favorites/:gameId", authMiddleware, async (req, res) => {
   }
 });
 
+// Borrar un usuario
+router.delete("/delete", authMiddleware, async (req, res) => {
+  const userId = req.user.id;
+
+  try {
+    // Sentencia para eliminar un usuario
+    await pool.query("DELETE FROM users WHERE id = ?", [userId]);
+    // Mensaje de confirmación
+    res.status(200).json({ message: "Usuario eliminado" });
+  } catch (err) {
+    console.error(err);
+    // Mensaje de error
+    res.status(500).json({ message: "Error interno" });
+  }
+});
 
 
 module.exports = router;

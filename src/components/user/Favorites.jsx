@@ -33,21 +33,17 @@ const Favorites = () => {
 
   const handlePageChange = (newPage) => setPage(newPage);
 
-  console.log("Page: ", page);
-  console.log("Paginated Favorites: ", paginatedFavorites);
 
   useEffect(() => {
     dispatch(fetchAsyncFavorites());
   }, [dispatch]);
 
-  console.log("Favorites: ", favorites);
   useEffect(() => {
     if (favorites.length > 0) {
       dispatch(fetchAsyncFavoritesDetails(favorites));
     }
   }, [favorites, dispatch]);
 
-  console.log("Favorite Details: ", favoriteDetails);
 
   const renderedFavoriteGames = (
     <>

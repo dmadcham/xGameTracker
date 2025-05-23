@@ -8,13 +8,11 @@ export const fetchAsyncFavorites = createAsyncThunk(
   "favorites/fetch",
   async () => {
     const token = localStorage.getItem("token");
-    console.log("Token usado:", token);
     const { data } = await authApi.get(`${favoritesURL}`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
     });
-    console.log("Respuesta del backend (IDs favoritos):", data);
 
     return data.map((row) => row.game_id);
   }
@@ -32,7 +30,6 @@ export const fetchAsyncFavoritesDetails = createAsyncThunk(
 
 export const addFavorite = createAsyncThunk("favorites/add", async (gameId) => {
   const token = localStorage.getItem("token");
-  console.log("Token usado:", token);
   const { data } = await authApi.post(
     `${favoritesURL}`,
     { gameId },
@@ -42,7 +39,6 @@ export const addFavorite = createAsyncThunk("favorites/add", async (gameId) => {
       },
     }
   );
-  console.log("Respuesta del backend (favorito añadido):", data);
   return data;
 });
 
@@ -50,13 +46,11 @@ export const removeFavorite = createAsyncThunk(
   "favorites/remove",
   async (gameId) => {
     const token = localStorage.getItem("token");
-    console.log("Token usado:", token);
     const { data } = await authApi.delete(`${favoritesURL}/${gameId}`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
     });
-    console.log("Respuesta del backend (favorito eliminado):", data);
     return data;
   }
 );

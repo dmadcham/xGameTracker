@@ -21,7 +21,6 @@ const StoreDetailsPage = () => {
     dispatch(fetchAsyncStoresDetails(storeId));
   }, [storeId]);
 
-  console.log(singleStoreData);
 
   const storeNameById = {
     [singleStoreData.id]: singleStoreData.name,

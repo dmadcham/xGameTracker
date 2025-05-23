@@ -1,7 +1,21 @@
 import styled from "styled-components";
 import { FaPaperPlane } from "react-icons/fa";
+import { useDispatch } from "react-redux";
+import { clearFavorites } from "../../redux/store/favSlice";
+import { useNavigate } from "react-router-dom";
 
 const Footer = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const isAuthenticated = !!localStorage.getItem("token");
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("username");
+    dispatch(clearFavorites());
+    navigate("/login");
+  };
+
   return (
     <FooterWrapper>
       <div className="footer-top">
@@ -11,30 +25,29 @@ const Footer = () => {
               x<span>Game</span>Tracker
             </a>
             <p className="para-text">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae
-              consequatur exercitationem distinctio quasi dolorem.
+              xGameTracker es una plataforma hecha por y para gamers! Busca
+              información de miles de juegos, y añádelos a favoritos!
             </p>
           </div>
           <div className="footer-item">
             <h5 className="footer-item-title text-uppercase">Links Rápidos</h5>
             <ul className="footer-item-links">
               <li>
-                <a href="#" className="text-white">
+                <a href="/" className="text-white">
                   Gaming
                 </a>
               </li>
               <li>
-                <a href="#" className="text-white">
+                <a href="/games" className="text-white">
                   Productos
                 </a>
               </li>
               <li>
-                <a href="#" className="text-white">
-                  Social
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-white">
+                <a
+                  target="_blank"
+                  href="https://discord.com/invite/gT9JuNvTe8"
+                  className="text-white"
+                >
                   Comunidad
                 </a>
               </li>
@@ -44,57 +57,78 @@ const Footer = () => {
             <h5 className="footer-item-title text-uppercase">Soporte</h5>
             <ul className="footer-item-links">
               <li>
-                <a href="#" className="text-white">
-                  Configuración y privacidad
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-white">
+                <a
+                  href="https://discord.com/invite/gT9JuNvTe8"
+                  className="text-white"
+                >
                   Ayuda y soporte
                 </a>
               </li>
               <li>
-                <a href="#" className="text-white">
+                <a href="https://www.twitch.tv/" className="text-white">
                   Acciones en vivo
                 </a>
               </li>
               <li>
-                <a href="#" className="text-white">
-                  Nuestras noticias
+                <a href="https://vandal.elespanol.com/" className="text-white">
+                  Noticias
                 </a>
               </li>
             </ul>
           </div>
           <div className="footer-item">
-            <h5 className="footer-item-title text-uppercase">Noticias</h5>
+            <h5 className="footer-item-title text-uppercase">
+              {isAuthenticated ? "Salir" : "Unirse"}
+            </h5>
             <p className="para-text">
-              Suscríbete para recibir las últimas
-              actualizaciones y noticias.
+              {isAuthenticated ? "Ya estás dentro. ¡Explora todo lo que tenemos para ti!" : "Inicia sesión para acceder a todas las funciones de la plataforma." }
             </p>
 
-            <form className="newsletter-form">
-              <div className="input-group d-flex align-items-stretch">
-                <input
-                  type="text"
-                  className="input-group-field"
-                  placeholder="Tu correo electrónico"
-                />
-                <button className="input-group-btn bg-white d-inline-flex align-items-center justify-content-center">
-                  <FaPaperPlane size={18} />
-                </button>
-              </div>
-            </form>
+            {isAuthenticated ? (
+              <button
+                type="button"
+                className="footer-button mt-4"
+                onClick={handleLogout}
+              >
+                Salir
+              </button>
+            ) : (
+              <button
+                type="button"
+                className="footer-button mt-4"
+                onClick={() => navigate("/login")}
+              >
+                Iniciar sesión
+              </button>
+            )}
           </div>
         </div>
       </div>
       <div className="footer-bottom">
         <div className="container d-flex flex-column text-center">
-          <p className="footer-bottom-text text-blue"> Copyright &copy; 2025 Diego Madroñero Chamorro - Todos los derechos reservados. </p>
+          <p className="footer-bottom-text text-blue">
+            {" "}
+            &copy; 2025 xGameTracker - Diseñado por Diego Madroñero Chamorro.{" "}
+          </p>
           <ul className="footer-bottom-links d-flex justif-content-center">
-            <li><a href="#" className="text-white">Inicio</a></li>
-            <li><a href="#" className="text-white">Centro de ayuda</a></li>
-            <li><a href="#" className="text-white">Contacto</a></li>
-            <li><a href="#" className="text-white">Terminos y condiciones</a></li>
+            <li>
+              <a href="/" className="text-white">
+                Inicio
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://discord.com/invite/gT9JuNvTe8"
+                className="text-white"
+              >
+                Contacto
+              </a>
+            </li>
+            <li>
+              <a href="#" className="text-white">
+                Iniciar sesión
+              </a>
+            </li>
           </ul>
         </div>
       </div>
@@ -155,45 +189,6 @@ const FooterWrapper = styled.footer`
     font-size: 20px;
     letter-spacing: 0.03em;
     font-weight: 700;
-  }
-
-  .newsletter-form {
-    margin-top: 18px;
-
-    .input-group {
-      height: 48px;
-      max-width: 284px;
-      width: 100%;
-      margin-right: auto;
-      margin-left: auto;
-      transition: var(--transition-default);
-
-      :has(.input-group-field:focus) {
-        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-      }
-
-      &-field {
-        background: #0c0a24;
-        padding-left: 22px;
-        padding-right: 22px;
-        color: var(--clr-white);
-        flex: 1;
-
-        &::placeholder {
-          color: var(--clr-white);
-          opacity: 0.8;
-        }
-      }
-
-      &-btn {
-        color: #0c0a24;
-        width: 48px;
-
-        &:hover {
-          transform: scale(1.1);
-        }
-      }
-    }
   }
 
   .footer-bottom {
@@ -257,6 +252,24 @@ const FooterWrapper = styled.footer`
   @media screen and (min-width: 1200px) {
     .footer-content {
       grid-template-columns: 3fr 2fr 2fr 3fr;
+    }
+  }
+
+  .footer-button {
+    height: 34px;
+    text-align: center;
+    border: 1px solid var(--clr-blue-normal);
+    padding: 0px 16px;
+    min-width: 108px;
+    color: var(--clr-white);
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    display: flex;
+    align-items: center;
+    transition: var(--transition-default);
+
+    &:hover {
+      background-color: var(--clr-blue-normal);
     }
   }
 `;

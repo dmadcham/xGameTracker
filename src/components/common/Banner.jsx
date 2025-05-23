@@ -10,7 +10,7 @@ const Banner = () => {
         <div className='banner-content w-100 container text-white'>
           <div className='banner-badge'>xGameTracker</div>
           <h1 className='banner-title text-uppercase'>El Tracker de videojuegos que todo gamer necesita</h1>
-          <p className='lead-text'>xGameTracker es una plataforma que te permite seguir el progreso de tus videojuegos favoritos. Además de poder valorarlos y ver las valoraciones de otros usuarios.
+          <p className='lead-text'>xGameTracker es una plataforma hecha por y para gamers! Aquí puedes ver la información de miles de juegos, y añadir los que quieras a favoritos!
           </p>
 
         </div>
