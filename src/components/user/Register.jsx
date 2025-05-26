@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import styled from "styled-components";
 import { useState } from "react";
-import { FaUser, FaLock } from "react-icons/fa";
+import { FaUser, FaLock, FaEnvelope } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import authApi from "../../api/authApi";
 
@@ -34,6 +34,7 @@ const Register = () => {
     <RegisterWrapper>
       <form className="register-form" onSubmit={handleSubmit(onSubmit)}>
         <h2 className="form-title text-uppercase text-white">REGISTRARSE</h2>
+        {/* NOMBRE DE USUARIO */}
         <div className="input-group">
           <input
             className="input-group-field"
@@ -49,6 +50,23 @@ const Register = () => {
           )}
         </div>
 
+        {/* EMAIL */}
+        <div className="input-group">
+          <input
+            className="input-group-field"
+            type="text"
+            placeholder="Correo"
+            {...register("email", {
+              required: "El correo es obligatorio",
+            })}
+          />
+          <FaEnvelope className="input-group-icon" size={20} />
+          {errors.email && (
+            <p className="input-group-error">{errors.email.message}</p>
+          )}
+        </div>
+
+        {/* CONTRASEÑA */}
         <div className="input-group">
           <input
             className="input-group-field"

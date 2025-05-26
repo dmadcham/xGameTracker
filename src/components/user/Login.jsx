@@ -72,6 +72,12 @@ const Login = () => {
           )}
         </div>
 
+        <div className="form-link" style={{ marginBottom: "10px" }}>
+          <p>
+            <Link to={"/forgot-password"}>¿Olvidaste tu contraseña?</Link>
+          </p>
+        </div>
+
         <button className="form-btn" type="submit">
           Iniciar sesión
         </button>

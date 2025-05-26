@@ -9,28 +9,28 @@ const bcrypt = require("bcrypt");
 
 // Registro
 router.post("/register", async (req, res) => {
-  const { username, password } = req.body;
+  const { username, password, email } = req.body;
   // Comprueba que se completan todos los campos
-  if (!username || !password)
+  if (!username || !password || !email)
     return res.status(400).json({ message: "Faltan datos" });
   try {
     // Sentencia para buscar si el usuario introducido ya existe
     const [existing] = await pool.query(
-      "SELECT * FROM users WHERE username = ?",
-      [username]
+      "SELECT * FROM users WHERE username = ? OR email = ?",
+      [username, email]
     );
     // Comprueba si el usuario ya existe
     if (existing.length > 0)
-      return res.status(409).json({ message: "Usuario ya exsiste" });
+      return res.status(409).json({ message: "El usuario o email ya exsiste" });
 
     // Cifrado de la contraseña
     const hashedPassword = await bcrypt.hash(password, 10);
 
     // Sentencia para insertar un nuevo usuario
-    await pool.query("INSERT INTO users (username, password) VALUES (?, ?)", [
-      username,
-      hashedPassword,
-    ]);
+    await pool.query(
+      "INSERT INTO users (username, password, email) VALUES (?, ?, ?)",
+      [username, hashedPassword, email]
+    );
     // Mensaje de confirmación
     res.status(201).json({
       message:
@@ -51,10 +51,9 @@ router.post("/login", async (req, res) => {
     return res.status(400).json({ message: "Faltan datos" });
   try {
     // Sentencia para buscar si el usuario introducido existe
-    const [rows] = await pool.query(
-      "SELECT * FROM users WHERE username = ?",
-      [username]
-    );
+    const [rows] = await pool.query("SELECT * FROM users WHERE username = ?", [
+      username,
+    ]);
     if (rows.length === 0)
       return res.status(401).json({ message: "Credenciales inválidas" });
 
@@ -91,14 +90,13 @@ router.post("/favorites", authMiddleware, async (req, res) => {
   const userId = req.user.id;
   const { gameId } = req.body;
   // Comprueba que se completan todos los campos
-  if ( !gameId)
-    return res.status(400).json({ message: "Faltan datos" });
+  if (!gameId) return res.status(400).json({ message: "Faltan datos" });
   try {
     // Sentencia para insertar un nuevo favorito
-    await pool.query(
-      "INSERT INTO favorites (user_id, game_id) VALUES (?, ?)",
-      [userId, gameId]
-    );
+    await pool.query("INSERT INTO favorites (user_id, game_id) VALUES (?, ?)", [
+      userId,
+      gameId,
+    ]);
     // Mensaje de confirmación
     res.status(201).json({ message: "Juego añadido a favoritos" });
   } catch (err) {
@@ -161,6 +159,5 @@ router.delete("/delete", authMiddleware, async (req, res) => {
     res.status(500).json({ message: "Error interno" });
   }
 });
-
 
 module.exports = router;
