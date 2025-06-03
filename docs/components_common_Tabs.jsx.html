@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>components/common/Tabs.jsx - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#App">App</a></li><li><a href="global.html#AppRouter">AppRouter</a></li><li><a href="global.html#Banner">Banner</a></li><li><a href="global.html#BannerWrapper">BannerWrapper</a></li><li><a href="global.html#BaseLayout">BaseLayout</a></li><li><a href="global.html#Breadcrumb">Breadcrumb</a></li><li><a href="global.html#BreadcrumbWrapper">BreadcrumbWrapper</a></li><li><a href="global.html#CreatorAllPage">CreatorAllPage</a></li><li><a href="global.html#CreatorAllPageWrapper">CreatorAllPageWrapper</a></li><li><a href="global.html#CreatorItem">CreatorItem</a></li><li><a href="global.html#CreatorItemWrapper">CreatorItemWrapper</a></li><li><a href="global.html#CreatorList">CreatorList</a></li><li><a href="global.html#CreatorListWrapper">CreatorListWrapper</a></li><li><a href="global.html#Dashboard">Dashboard</a></li><li><a href="global.html#DashboardPage">DashboardPage</a></li><li><a href="global.html#DashboardPageWrapper">DashboardPageWrapper</a></li><li><a href="global.html#DashboardWrapper">DashboardWrapper</a></li><li><a href="global.html#Favorites">Favorites</a></li><li><a href="global.html#FavoritesWrapper">FavoritesWrapper</a></li><li><a href="global.html#Footer">Footer</a></li><li><a href="global.html#FooterWrapper">FooterWrapper</a></li><li><a href="global.html#GameAllPage">GameAllPage</a></li><li><a href="global.html#GameAllPageWrapper">GameAllPageWrapper</a></li><li><a href="global.html#GameDetails">GameDetails</a></li><li><a href="global.html#GameDetailsPage">GameDetailsPage</a></li><li><a href="global.html#GameDetailsPageWrapper">GameDetailsPageWrapper</a></li><li><a href="global.html#GameDetailsWrapper">GameDetailsWrapper</a></li><li><a href="global.html#GameItem">GameItem</a></li><li><a href="global.html#GameItemWrapper">GameItemWrapper</a></li><li><a href="global.html#GameList">GameList</a></li><li><a href="global.html#GameListWrapper">GameListWrapper</a></li><li><a href="global.html#GenreItem">GenreItem</a></li><li><a href="global.html#GenreItemWrapper">GenreItemWrapper</a></li><li><a href="global.html#HomePage">HomePage</a></li><li><a href="global.html#HomeWrapper">HomeWrapper</a></li><li><a href="global.html#ImageSlider">ImageSlider</a></li><li><a href="global.html#ImageSliderWrapper">ImageSliderWrapper</a></li><li><a href="global.html#Login">Login</a></li><li><a href="global.html#LoginPage">LoginPage</a></li><li><a href="global.html#LoginPageWrapper">LoginPageWrapper</a></li><li><a href="global.html#LoginWrapper">LoginWrapper</a></li><li><a href="global.html#Navbar">Navbar</a></li><li><a href="global.html#NavbarWrapper">NavbarWrapper</a></li><li><a href="global.html#PageNotFound">PageNotFound</a></li><li><a href="global.html#PageNotFoundWrapper">PageNotFoundWrapper</a></li><li><a href="global.html#Pagination">Pagination</a></li><li><a href="global.html#PaginationWrapper">PaginationWrapper</a></li><li><a href="global.html#Preloader">Preloader</a></li><li><a href="global.html#PreloaderWrapper">PreloaderWrapper</a></li><li><a href="global.html#ProtectedRoute">ProtectedRoute</a></li><li><a href="global.html#PublicRoute">PublicRoute</a></li><li><a href="global.html#Register">Register</a></li><li><a href="global.html#RegisterPage">RegisterPage</a></li><li><a href="global.html#RegisterPageWrapper">RegisterPageWrapper</a></li><li><a href="global.html#RegisterWrapper">RegisterWrapper</a></li><li><a href="global.html#StarRating">StarRating</a></li><li><a href="global.html#StarRatingWrapper">StarRatingWrapper</a></li><li><a href="global.html#StoreAllPage">StoreAllPage</a></li><li><a href="global.html#StoreAllPageWrapper">StoreAllPageWrapper</a></li><li><a href="global.html#StoreDetails">StoreDetails</a></li><li><a href="global.html#StoreDetailsPage">StoreDetailsPage</a></li><li><a href="global.html#StoreDetailsPageWrapper">StoreDetailsPageWrapper</a></li><li><a href="global.html#StoreDetailsWrapper">StoreDetailsWrapper</a></li><li><a href="global.html#StoreItem">StoreItem</a></li><li><a href="global.html#StoreItemWrapper">StoreItemWrapper</a></li><li><a href="global.html#StoreList">StoreList</a></li><li><a href="global.html#StoreListWrapper">StoreListWrapper</a></li><li><a href="global.html#Tabs">Tabs</a></li><li><a href="global.html#TabsWrapper">TabsWrapper</a></li><li><a href="global.html#Title">Title</a></li><li><a href="global.html#TitleWrapper">TitleWrapper</a></li></ul>
+    
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">components/common/Tabs.jsx</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { useState } from "react";
+import styled from "styled-components";
+import PropTypes from "prop-types";
+import { HiMenu } from "react-icons/hi";
+import { GenreItem } from "../genre";
+
+/**
+ * Componente Tabs
+ * 
+ * @component
+ * @description Este componente muestra una lista de géneros de juegos en forma de pestañas. Permite al usuario seleccionar un género y ver los juegos asociados a ese género.
+ * @param {Object} props - Las propiedades del componente.
+ * @param {Array} props.data - Un array de objetos que representan los géneros de juegos. Cada objeto debe tener un `id`, `name` y un array de `games`.
+ * 
+ * @returns {JSX.Element} Un elemento JSX que representa las pestañas de géneros de juegos.
+ */
+const Tabs = ({ data }) => {
+  const [activeTab, setActiveTab] = useState(data[0]); // Por defecto se utiliza el primer género
+  const [tabButtonStatus, setTabButtonStatus] = useState(false);
+
+  const tabClickHandler = (id) => {
+    data.map((item) => {
+      if (item.id === id) {
+        setActiveTab(item);
+      }
+    });
+  };
+
+  const tabButtonsHandler = () =>
+    setTabButtonStatus((prevStatus) => !prevStatus);
+
+  return (
+    &lt;TabsWrapper className="bg-white">
+      &lt;div className="container">
+        &lt;div className="tabs-content">
+          &lt;ul className={`tabs-buttons ${tabButtonStatus ? "show" : ""}`}>
+            &lt;button
+              type="button"
+              className="tabs-buttons-close bg-white d-flex align-items-center justify-content-center"
+              onClick={tabButtonsHandler}
+            >
+              &lt;HiMenu size={22} />
+            &lt;/button>
+            {data.map((item) => {
+              return (
+                &lt;li
+                  key={item?.id}
+                  className={`tabs-button ${
+                    item?.id === activeTab.id ? "tabs-active" : ""
+                  }`}
+                >
+                  &lt;button
+                    className="text-white"
+                    type="button"
+                    onClick={() => tabClickHandler(item?.id)}
+                  >
+                    {item?.name}
+                  &lt;/button>
+                &lt;/li>
+              );
+            })}
+          &lt;/ul>
+
+          &lt;div className="tabs-body">
+            &lt;div className="card-list">
+              {activeTab?.games?.map((item) => (
+                &lt;GenreItem key={item.id} gameItem={item} />
+              ))}
+            &lt;/div>
+          &lt;/div>
+        &lt;/div>
+      &lt;/div>
+    &lt;/TabsWrapper>
+  );
+};
+
+export default Tabs;
+
+Tabs.propTypes = {
+  data: PropTypes.array,
+};
+
+/**
+ * Estilos del componente Tabs
+ * 
+ * @description Este styled-component define los estilos para el componente de pestañas, incluyendo la disposición de los botones y el cuerpo de las pestañas.
+ * @returns {StyledComponent} El componente estilizado para las pestañas.
+ */
+const TabsWrapper = styled.div`
+  position: relative;
+  min-height: 1000px;
+  background-color: var(--clr-violet-dark-active);
+
+  .tabs-buttons {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 286px;
+    z-index: 99;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    /* box-shadow: rgba(0, 0, 0, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px; */
+    transition: var(--transition-default);
+
+    .tabs-buttons-close {
+      position: absolute;
+      right: -32px;
+      top: 0;
+      width: 32px;
+      height: 32px;
+      display: none;
+
+      &amp;:hover {
+        background-color: var(--clr-pink-normal);
+        color: var(--clr-white);
+      }
+    }
+
+    @media screen and (max-width: 1480px) {
+      width: 240px;
+    }
+
+    @media screen and (max-width: 1380px) {
+      width: 200px;
+    }
+
+    @media screen and (max-width: 1280px) {
+      transform: translateX(-88%);
+      width: 286px;
+
+      .tabs-buttons-close {
+        display: block;
+      }
+
+      &amp;.show {
+        transform: translateX(0);
+      }
+    }
+  }
+
+  .tabs-button {
+    button {
+      padding: 12px 30px;
+      font-family: "Barlow";
+      font-weight: 500;
+      font-size: 18px;
+      letter-spacing: 0.1em;
+      /* border-bottom: 1px solid rgba(255, 255, 255, 0.03); */
+      width: 100%;
+      text-align: start;
+    }
+
+    &amp;:hover:not(.tabs-active) {
+      background-color: rgba(0, 0, 0, 0.05);
+    }
+  }
+
+  .tabs-active {
+    background-color: var(--clr-pink-normal);
+    button {
+      color: var(--clr-white);
+    }
+  }
+
+  .tabs-body {
+    max-width: 1050px;
+    margin-left: auto;
+  }
+`;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.4</a> on Tue Jun 03 2025 12:55:10 GMT+0200 (hora de verano de Europa central) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+
+
+</body>
+</html>

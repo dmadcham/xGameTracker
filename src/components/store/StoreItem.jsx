@@ -2,6 +2,15 @@ import styled from "styled-components";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
+/**
+ * Componente StoreItem
+ * 
+ * @description Este componente muestra un elemento de tienda con su imagen, nombre, dominio, número de juegos y una lista de juegos asociados. Incluye enlaces para ver más detalles de la tienda y de los juegos.
+ * @param {Object} props - Las propiedades del componente.
+ * @param {Object} props.storeItem - Un objeto que representa un elemento de tienda, debe contener propiedades como `id`, `name`, `image_background`, `domain`, `games_count`, y `games` (un array de juegos).
+ * 
+ * @returns {JSX.Element} Un elemento JSX que representa un elemento de tienda estilizado. 
+ */
 const StoreItem = ({ storeItem }) => {
   return (
     <StoreItemWrapper className="card d-grid">
@@ -45,6 +54,13 @@ StoreItem.propTypes = {
   storeItem: PropTypes.object,
 };
 
+/**
+ * Estilos del componente StoreItem
+ * 
+ * @component
+ * @description Este styled-component define los estilos para el componente StoreItem, incluyendo el diseño del contenedor, la imagen de la tienda, el título, la información y la lista de juegos.
+ * @returns {StyledComponent} El componente estilizado para el StoreItem.
+ */
 const StoreItemWrapper = styled.div`
   grid-template-columns: repeat(2, 1fr);
   min-height: 120px;

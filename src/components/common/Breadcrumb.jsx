@@ -3,6 +3,17 @@ import PropTypes from "prop-types";
 import useReactRouterBreadcrumbs from "use-react-router-breadcrumbs";
 import { Link } from "react-router-dom";
 
+
+/**
+ * Componente Breadcrumb
+ * 
+ * @component
+ * @description Este componente muestra una barra de navegación de tipo breadcrumb que permite a los usuarios navegar por las páginas de la aplicación.
+ * 
+ * @param {Object} props - Las propiedades del componente.
+ * @param {Object} props.dataNameById - Un objeto que mapea IDs a nombres de datos, utilizado para mostrar el nombre correcto en el breadcrumb.
+ * @returns {JSX.Element} Un elemento JSX que representa la barra de navegación breadcrumb.
+ */
 const Breadcrumb = ({ dataNameById }) => {
   const breadcrumbs = useReactRouterBreadcrumbs();
 
@@ -42,6 +53,12 @@ Breadcrumb.propTypes = {
   dataNameById: PropTypes.object,
 };
 
+/**
+ * Estilos del componente Breadcrumb
+ * 
+ * @description Este styled-component define los estilos para el Breadcrumb, incluyendo el espaciado, el color del texto y el estilo de los enlaces.
+ * @returns {StyledComponent} El componente estilizado para el Breadcrumb.
+ */
 const BreadcrumbWrapper = styled.div`
   margin: 13px 0;
   .breadcrumb-item {

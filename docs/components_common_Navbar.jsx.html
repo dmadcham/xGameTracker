@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>components/common/Navbar.jsx - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#App">App</a></li><li><a href="global.html#AppRouter">AppRouter</a></li><li><a href="global.html#Banner">Banner</a></li><li><a href="global.html#BannerWrapper">BannerWrapper</a></li><li><a href="global.html#BaseLayout">BaseLayout</a></li><li><a href="global.html#Breadcrumb">Breadcrumb</a></li><li><a href="global.html#BreadcrumbWrapper">BreadcrumbWrapper</a></li><li><a href="global.html#CreatorAllPage">CreatorAllPage</a></li><li><a href="global.html#CreatorAllPageWrapper">CreatorAllPageWrapper</a></li><li><a href="global.html#CreatorItem">CreatorItem</a></li><li><a href="global.html#CreatorItemWrapper">CreatorItemWrapper</a></li><li><a href="global.html#CreatorList">CreatorList</a></li><li><a href="global.html#CreatorListWrapper">CreatorListWrapper</a></li><li><a href="global.html#Dashboard">Dashboard</a></li><li><a href="global.html#DashboardPage">DashboardPage</a></li><li><a href="global.html#DashboardPageWrapper">DashboardPageWrapper</a></li><li><a href="global.html#DashboardWrapper">DashboardWrapper</a></li><li><a href="global.html#Favorites">Favorites</a></li><li><a href="global.html#FavoritesWrapper">FavoritesWrapper</a></li><li><a href="global.html#Footer">Footer</a></li><li><a href="global.html#FooterWrapper">FooterWrapper</a></li><li><a href="global.html#GameAllPage">GameAllPage</a></li><li><a href="global.html#GameAllPageWrapper">GameAllPageWrapper</a></li><li><a href="global.html#GameDetails">GameDetails</a></li><li><a href="global.html#GameDetailsPage">GameDetailsPage</a></li><li><a href="global.html#GameDetailsPageWrapper">GameDetailsPageWrapper</a></li><li><a href="global.html#GameDetailsWrapper">GameDetailsWrapper</a></li><li><a href="global.html#GameItem">GameItem</a></li><li><a href="global.html#GameItemWrapper">GameItemWrapper</a></li><li><a href="global.html#GameList">GameList</a></li><li><a href="global.html#GameListWrapper">GameListWrapper</a></li><li><a href="global.html#GenreItem">GenreItem</a></li><li><a href="global.html#GenreItemWrapper">GenreItemWrapper</a></li><li><a href="global.html#HomePage">HomePage</a></li><li><a href="global.html#HomeWrapper">HomeWrapper</a></li><li><a href="global.html#ImageSlider">ImageSlider</a></li><li><a href="global.html#ImageSliderWrapper">ImageSliderWrapper</a></li><li><a href="global.html#Login">Login</a></li><li><a href="global.html#LoginPage">LoginPage</a></li><li><a href="global.html#LoginPageWrapper">LoginPageWrapper</a></li><li><a href="global.html#LoginWrapper">LoginWrapper</a></li><li><a href="global.html#Navbar">Navbar</a></li><li><a href="global.html#NavbarWrapper">NavbarWrapper</a></li><li><a href="global.html#PageNotFound">PageNotFound</a></li><li><a href="global.html#PageNotFoundWrapper">PageNotFoundWrapper</a></li><li><a href="global.html#Pagination">Pagination</a></li><li><a href="global.html#PaginationWrapper">PaginationWrapper</a></li><li><a href="global.html#Preloader">Preloader</a></li><li><a href="global.html#PreloaderWrapper">PreloaderWrapper</a></li><li><a href="global.html#ProtectedRoute">ProtectedRoute</a></li><li><a href="global.html#PublicRoute">PublicRoute</a></li><li><a href="global.html#Register">Register</a></li><li><a href="global.html#RegisterPage">RegisterPage</a></li><li><a href="global.html#RegisterPageWrapper">RegisterPageWrapper</a></li><li><a href="global.html#RegisterWrapper">RegisterWrapper</a></li><li><a href="global.html#StarRating">StarRating</a></li><li><a href="global.html#StarRatingWrapper">StarRatingWrapper</a></li><li><a href="global.html#StoreAllPage">StoreAllPage</a></li><li><a href="global.html#StoreAllPageWrapper">StoreAllPageWrapper</a></li><li><a href="global.html#StoreDetails">StoreDetails</a></li><li><a href="global.html#StoreDetailsPage">StoreDetailsPage</a></li><li><a href="global.html#StoreDetailsPageWrapper">StoreDetailsPageWrapper</a></li><li><a href="global.html#StoreDetailsWrapper">StoreDetailsWrapper</a></li><li><a href="global.html#StoreItem">StoreItem</a></li><li><a href="global.html#StoreItemWrapper">StoreItemWrapper</a></li><li><a href="global.html#StoreList">StoreList</a></li><li><a href="global.html#StoreListWrapper">StoreListWrapper</a></li><li><a href="global.html#Tabs">Tabs</a></li><li><a href="global.html#TabsWrapper">TabsWrapper</a></li><li><a href="global.html#Title">Title</a></li><li><a href="global.html#TitleWrapper">TitleWrapper</a></li></ul>
+    
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">components/common/Navbar.jsx</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import styled from "styled-components";
+import { Link, useNavigate } from "react-router-dom";
+import { HiMenuAlt3 } from "react-icons/hi";
+import { FaUserAstronaut, FaTwitch, FaYoutube } from "react-icons/fa";
+import { MdClose, MdLogout } from "react-icons/md";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  selectSidebarStatus,
+  setSidebarOff,
+  setSidebarOn,
+} from "../../redux/store/sidebarSlice";
+import { clearFavorites } from "../../redux/store/favSlice";
+
+/**
+ * 
+ * Componente Navbar
+ * 
+ * @component
+ * @description Este componente muestra la barra de navegación de la aplicación, incluyendo enlaces a diferentes secciones, un botón para mostrar/ocultar la barra lateral y opciones de conexión.
+ * 
+ * @returns {JSX.Element} Un elemento JSX que representa la barra de navegación de la aplicación.
+ */
+const Navbar = () => {
+  const dispatch = useDispatch();
+  const sidebarStatus = useSelector(selectSidebarStatus);
+  const isAutenticated = !!localStorage.getItem("token");
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("username");
+    dispatch(clearFavorites());
+    navigate("/login");
+  }
+
+  return (
+    &lt;NavbarWrapper className="d-flex align-items-center">
+      &lt;div className="container w-100">
+        &lt;div className="navbar-content">
+          &lt;div className="brand-and-toggler d-flex align-items-center justify-content-between">
+            &lt;Link to="/" className="navbar-brand text-white no-wrapp">
+              x&lt;span>Game&lt;/span>Tracker
+            &lt;/Link>
+            &lt;button
+              type="button"
+              className="navbar-show-btn text-white"
+              onClick={() => dispatch(setSidebarOn())}
+            >
+              &lt;HiMenuAlt3 size={25} />
+            &lt;/button>
+          &lt;/div>
+
+          &lt;div className={`navbar-collapse ${sidebarStatus ? "show" : " "}`}>
+            &lt;button
+              type="button"
+              className="navbar-hide-btn"
+              onClick={() => dispatch(setSidebarOff())}
+            >
+              &lt;MdClose size={25} />
+            &lt;/button>
+
+            &lt;ul className="navbar-nav">
+              &lt;li className="nav-item">
+                &lt;Link to="/" className="nav-link">
+                  Inicio
+                &lt;/Link>
+              &lt;/li>
+              &lt;li className="nav-item">
+                &lt;Link to="/creators" className="nav-link">
+                  Creadores
+                &lt;/Link>
+              &lt;/li>
+              &lt;li className="nav-item">
+                &lt;Link to="/stores" className="nav-link">
+                  Tiendas
+                &lt;/Link>
+              &lt;/li>
+              &lt;li className="nav-item">
+                &lt;Link to="/games" className="nav-link">
+                  Juegos
+                &lt;/Link>
+              &lt;/li>
+            &lt;/ul>
+
+            &lt;ul className="connect-list d-flex justify-content-center align-items-center mt-5 flex-wrap">
+              &lt;li className="text-uppercase fw-7 w-100 connect-text mb-2">
+                { isAutenticated ? (
+                  &lt;Link className="connect-link" onClick={handleLogout} to={"/"} >
+                    Salir
+                  &lt;/Link>
+                ) : (
+                  &lt;Link className="connect-link" to="/login" >
+                    Conéctate
+                  &lt;/Link>
+                )}
+                
+              &lt;/li>
+              &lt;li className="connect-item">
+                  &lt;Link className="connect-link" to={isAutenticated ? "/dashboard" : "/login"} >
+                    &lt;FaUserAstronaut />
+                  &lt;/Link>
+              &lt;/li>
+              
+              &lt;li className="connect-item">
+                &lt;Link to="https://www.twitch.tv/" className="connect-link">
+                  &lt;FaTwitch size={18} />
+                &lt;/Link>
+              &lt;/li>
+              &lt;li className="connect-item">
+                &lt;Link to="https://www.youtube.com/" className="connect-link">
+                  &lt;FaYoutube size={18} />
+                &lt;/Link>
+              &lt;/li>
+              &lt;li className="connect-item">
+                { isAutenticated ? (
+                  &lt;Link className="connect-link" onClick={handleLogout} to={"/"} 
+                >
+                  &lt;MdLogout size={18} />
+                &lt;/Link>
+                ) : "" }                
+              &lt;/li>
+            &lt;/ul>
+          &lt;/div>
+        &lt;/div>
+      &lt;/div>
+    &lt;/NavbarWrapper>
+  );
+};
+
+export default Navbar;
+
+/**
+ * Estilos del componente Navbar
+ * 
+ * @description Este styled-component define los estilos para la barra de navegación, incluyendo el fondo, los enlaces, los botones de conexión y la barra lateral.
+ * @returns {StyledComponent} El componente estilizado para la barra de navegación.
+ */
+const NavbarWrapper = styled.div`
+  min-height: 78px;
+  background: #090624;
+
+  .navbar-brand {
+    font-weight: 700;
+    font-size: 32px;
+
+    span {
+      color: var(--clr-blue-normal);
+    }
+  }
+
+  .nav-item {
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  }
+
+  .nav-link {
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 2px;
+    transition: var(--transition-default);
+
+    &amp;:hover {
+      color: var(--clr-pink-normal);
+    }
+  }
+
+  .connect-text {
+    letter-spacing: 2px;
+  }
+
+  .connect-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 2px;
+    margin-left: 2px;
+  }
+
+  .connect-link {
+    padding: 6px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition-default);
+
+    &amp;:hover {
+      color: var(--clr-violet-normal);
+    }
+  }
+
+  .navbar-collapse {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 280px;
+    height: 100%;
+    background-color: var(--clr-white);
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    padding: 60px 20px 16px;
+    text-align: center;
+    transform: translateX(100%);
+    transition: var(--transition-default);
+    z-index: 999;
+
+    // after the show sidebar is triggered
+    &amp;.show {
+      transform: translateX(0);
+    }
+  }
+
+  .navbar-hide-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    transition: var(--transition-default);
+    &amp;:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  .navbar-show-btn {
+    transition: var(--transition-default);
+    &amp;:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  @media screen and (min-width: 992px) {
+    .navbar-show-btn {
+      display: none;
+    }
+    .navbar-collapse {
+      transform: translateX(0);
+      position: relative;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      width: 100%;
+      background-color: transparent;
+      box-shadow: none;
+    }
+    .navbar-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-item {
+      margin-left: 6px;
+    }
+    .navbar-nav {
+      display: flex;
+    }
+    .navbar-hide-btn {
+      display: none;
+    }
+    .nav-link {
+      color: var(--clr-white);
+      padding: 1px 10px;
+    }
+    .connect-list {
+      display: flex;
+      margin-top: 0;
+      color: var(--clr-white);
+      margin-left: 40px;
+      .connect-text {
+        width: auto;
+        margin-bottom: 0;
+        margin-right: 22px;
+        display: none;
+      }
+      .connect-link {
+        color: var(--clr-white);
+      }
+    }
+  }
+
+  @media screen and (min-width: 1200px) {
+    .nav-link {
+      padding-right: 16px;
+      padding-left: 16px;
+    }
+    .connect-list {
+      margin-left: 88px;
+
+      .connect-text {
+        display: inline-block;
+      }
+    }
+  }
+`;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.4</a> on Tue Jun 03 2025 12:55:10 GMT+0200 (hora de verano de Europa central) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+
+
+</body>
+</html>

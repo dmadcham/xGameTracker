@@ -5,6 +5,14 @@ import authApi from "../../api/authApi";
 import { FaUser, FaLock } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 
+/**
+ * Componente Login
+ * 
+ * @component
+ * @description Este componente muestra un formulario de inicio de sesión para que los usuarios ingresen sus credenciales. Utiliza React Hook Form para la gestión del formulario y Axios para realizar la solicitud de inicio de sesión a la API.
+ * 
+ * @returns {JSX.Element} Un elemento JSX que representa el formulario de inicio de sesión.
+ */
 const Login = () => {
   const {
     register,
@@ -42,6 +50,7 @@ const Login = () => {
       <form className="login-form" onSubmit={handleSubmit(onSubmit)}>
         <h2 className="form-title text-uppercase text-white">INICIAR SESIÓN</h2>
 
+        {/* Input del nombre de usuario */}
         <div className="input-group">
           <input
             className="input-group-field"
@@ -57,6 +66,7 @@ const Login = () => {
           )}
         </div>
 
+        {/* Input de la contraseña */}
         <div className="input-group">
           <input
             className="input-group-field"
@@ -72,22 +82,19 @@ const Login = () => {
           )}
         </div>
 
-        <div className="form-link" style={{ marginBottom: "10px" }}>
-          <p>
-            <Link to={"/forgot-password"}>¿Olvidaste tu contraseña?</Link>
-          </p>
-        </div>
-
+        {/* Botón de inicio de sesión */}
         <button className="form-btn" type="submit">
           Iniciar sesión
         </button>
 
+        {/* Enlace a la página de registro */}
         <div className="form-link">
           <p>
             ¿No tienes cuenta? <Link to={"/register"}>Regístrate</Link>
           </p>
         </div>
 
+        {/* Mensaje de confirmación */}
         {msg && (
           <p
             style={{
@@ -109,6 +116,12 @@ const Login = () => {
 
 export default Login;
 
+/**
+ * Estilos del componente Login
+ * 
+ * @description Este styled-component define los estilos para el formulario de inicio de sesión, incluyendo el diseño del contenedor, los campos de entrada, los botones y los mensajes de error.
+ * @returns {StyledComponent} El componente estilizado para el formulario de inicio de sesión.
+ */
 const LoginWrapper = styled.div`
   position: relative;
   width: 300px;

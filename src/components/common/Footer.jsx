@@ -4,6 +4,13 @@ import { useDispatch } from "react-redux";
 import { clearFavorites } from "../../redux/store/favSlice";
 import { useNavigate } from "react-router-dom";
 
+/**
+ * Componente Footer
+ * 
+ * @description Este componente muestra el pie de página de la aplicación, incluyendo enlaces rápidos, información de contacto y un botón para iniciar sesión o salir.
+ * 
+ * @returns {JSX.Element} Un elemento JSX que representa el pie de página de la aplicación.
+ */
 const Footer = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -138,6 +145,13 @@ const Footer = () => {
 
 export default Footer;
 
+/**
+ * Estilos del componente Footer
+ * 
+ * @component
+ * @description Este styled-component define los estilos para el Footer, incluyendo el diseño de la parte superior e inferior, los enlaces y botones.
+ * @returns {StyledComponent} El componente estilizado para el Footer.
+ */
 const FooterWrapper = styled.footer`
   .footer-top {
     background-color: var(--clr-violet-darker);

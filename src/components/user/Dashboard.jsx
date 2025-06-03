@@ -1,11 +1,16 @@
 import styled from "styled-components";
 import { default_profile_image } from "../../utils/images";
 import Favorites from "./Favorites";
-import { useEffect, useRef, useState } from "react";
 
+/**
+ * Componente Dashboard
+ * 
+ * @description Este componente muestra el dashboard del usuario, incluyendo su perfil y sus juegos favoritos.
+ *  
+ * @returns {JSX.Element} Un elemento JSX que representa el dashboard del usuario estilizado. 
+ */
 const Dashboard = () => {
   const username = localStorage.getItem("username");
-  const token = localStorage.getItem("token");
 
   return (
     <DashboardWrapper>
@@ -31,6 +36,13 @@ const Dashboard = () => {
 
 export default Dashboard;
 
+/**
+ * Estilos del componente Dashboard
+ * 
+ * @component
+ * @description Este styled-component define los estilos para el componente Dashboard, incluyendo el diseño del contenedor, la imagen del perfil, el título y la sección de juegos favoritos.
+ * @returns {StyledComponent} El componente estilizado para el Dashboard.
+ */
 const DashboardWrapper = styled.div`
   background-color: var(--clr-violet-light-transparent);
   width: 100%;

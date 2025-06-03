@@ -5,6 +5,14 @@ import { FaUser, FaLock, FaEnvelope } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import authApi from "../../api/authApi";
 
+/**
+ * Componente Register
+ * 
+ * @component
+ * @description Este componente muestra un formulario de registro para que los nuevos usuarios creen una cuenta. Utiliza React Hook Form para la gestión del formulario y Axios para realizar la solicitud de registro a la API.
+ * 
+ * @returns {JSX.Element} Un elemento JSX que representa el formulario de registro.
+ */
 const Register = () => {
   const {
     register,
@@ -54,7 +62,7 @@ const Register = () => {
         <div className="input-group">
           <input
             className="input-group-field"
-            type="text"
+            type="email"
             placeholder="Correo"
             {...register("email", {
               required: "El correo es obligatorio",
@@ -114,6 +122,13 @@ const Register = () => {
 
 export default Register;
 
+/**
+ * Estilos del componente Register
+ * 
+ * @description Este styled-component define los estilos para el formulario de registro, incluyendo campos de entrada, botones y mensajes de error.
+ * 
+ * @returns {StyledComponent} El componente estilizado para el formulario de registro.
+ */
 const RegisterWrapper = styled.div`
   position: relative;
   width: 300px;

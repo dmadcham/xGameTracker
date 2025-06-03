@@ -7,6 +7,14 @@ import { Preloader, Title } from '../../components/common';
 import { STATUS } from '../../utils/status';
 import { StoreList } from '../../components/store';
 
+/**
+ * Componente StoreAllPage
+ * 
+ * @component
+ * @description Este componente muestra una lista de todas las tiendas disponibles. Utiliza Redux para gestionar el estado de las tiendas y su carga. Al cargar la página, se realiza una solicitud para obtener las tiendas y se muestra un preloader mientras se cargan los datos. Si hay tiendas disponibles, se muestran en una lista.
+ * 
+ * @returns {JSX.Element} Un elemento JSX que representa la página de todas las tiendas.
+ */
 const StoreAllPage = () => {
   const dispatch = useDispatch();
   const stores = useSelector(selectAllStores);
@@ -37,6 +45,12 @@ const StoreAllPage = () => {
 
 export default StoreAllPage;
 
+/**
+ * Estilos para el componente StoreAllPage
+ * 
+ * @description Este styled-component define los estilos para la página de todas las tiendas. Asegura que la página tenga un fondo oscuro y un relleno adecuado en la parte superior.
+ * @returns {StyledComponent} El componente estilizado que representa la página de todas las tiendas.
+ */
 const StoreAllPageWrapper = styled.div`
   background-color: var(--clr-violet-dark-active);
   .sc-stores{

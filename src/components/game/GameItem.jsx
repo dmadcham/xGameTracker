@@ -4,6 +4,16 @@ import { FaRegStar } from "react-icons/fa";
 import PropTypes from "prop-types";
 import { StarRating } from "../common";
 
+/**
+ * Componente GameItem
+ * 
+ * @description Este componente muestra un elemento de juego con su imagen, nombre, fecha de lanzamiento, puntuación en Metacritic y una calificación por estrellas. También incluye un enlace para ver más detalles del juego.
+ * 
+ * @param {Object} props - Las propiedades del componente.
+ * @param {Object} props.gameItem - Un objeto que representa un juego, debe contener propiedades como `background_image`, `name`, `released`, `metacritic`, `rating`, y `ratings_count`.
+ * 
+ * @returns {JSX.Element} Un elemento JSX que representa un juego estilizado.
+ */
 const GameItem = ({ gameItem }) => {
   return (
     <GameItemWrapper className="card">
@@ -51,6 +61,13 @@ GameItem.propTypes = {
   gameItem: PropTypes.object,
 };
 
+/**
+ * Estilos del componente GameItem
+ * 
+ * @component
+ * @description Este styled-component define los estilos para el componente GameItem, incluyendo el diseño del contenedor, la imagen del juego, el título, los detalles y el botón de acción.
+ * @returns {StyledComponent} El componente estilizado para el GameItem.
+ */
 const GameItemWrapper = styled.div`
   display: flex;
   flex-direction: column;

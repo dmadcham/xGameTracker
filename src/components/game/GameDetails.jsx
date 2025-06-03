@@ -14,11 +14,24 @@ import { StoreItem } from "../store";
 import { useDispatch, useSelector } from "react-redux";
 import { addFavorite, fetchAsyncFavorites, removeFavorite } from "../../redux/utils/favUtils";
 import { selectAllFavorites } from "../../redux/store/favSlice";
+import { useNavigate } from "react-router-dom";
 
+/**
+ * Componente GameDetails
+ * 
+ * @component
+ * @description Este componente muestra los detalles de un juego específico, incluyendo su nombre, descripción, plataformas, desarrolladores, géneros, editores y opciones para añadir o eliminar el juego de favoritos.
+ * @param {Object} props - Las propiedades del componente.
+ * @param {Object} props.gameData - Un objeto que contiene los datos del juego, incluyendo `id`, `name`, `background_image`, `description`, `released`, `platforms`, `developers`, `genres`, `publishers` y `stores`.
+ * 
+ * @returns {JSX.Element} Un elemento JSX que representa los detalles del juego estilizados.
+ */
 const GameDetails = ({ gameData }) => {
   const dispatch = useDispatch();
   const favorites = useSelector(selectAllFavorites);
   const isFavorite = favorites.includes(gameData.id);
+  const isAutenticated = !!localStorage.getItem("token");
+  const navigate = useNavigate();
 
   let platforms = gameData?.platforms?.map(
     (platform) => platform.platform.name
@@ -28,6 +41,9 @@ const GameDetails = ({ gameData }) => {
   let publishers = gameData?.publishers?.map((publisher) => publisher.name);
 
   const handleFavoriteClick = () => {
+    if (!isAutenticated) {
+      navigate("/login");  
+    }
     if (isFavorite) {
       dispatch(removeFavorite(gameData.id)).then(() => {
         dispatch(fetchAsyncFavorites());
@@ -137,7 +153,9 @@ const GameDetails = ({ gameData }) => {
                   onClick={handleFavoriteClick}
                   style={{ cursor: "pointer" }}
                 >
-                  {isFavorite ? "Eliminar de favoritos" : "Añadir a favoritos"}
+
+                  {isAutenticated ? (isFavorite ? "Eliminar de favoritos" : "Añadir a favoritos") : "Inicia sesión para añadir a favoritos" }	
+                  
                 </span>
               </div>
             </li>
@@ -200,6 +218,13 @@ GameDetails.propTypes = {
   gameData: PropTypes.array,
 };
 
+/**
+ * Estilos del componente GameDetails
+ * 
+ * @description Este styled-component define los estilos para el componente GameDetails, incluyendo el diseño del contenedor, la cuadrícula de detalles, los títulos y las listas de información.
+ * 
+ * @returns {StyledComponent} El componente estilizado para los detalles del juego.
+ */
 const GameDetailsWrapper = styled.div`
   background: rgba(0, 0, 0, 0.16);
   padding: 32px 14px;

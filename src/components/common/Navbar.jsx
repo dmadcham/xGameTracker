@@ -11,6 +11,15 @@ import {
 } from "../../redux/store/sidebarSlice";
 import { clearFavorites } from "../../redux/store/favSlice";
 
+/**
+ * 
+ * Componente Navbar
+ * 
+ * @component
+ * @description Este componente muestra la barra de navegación de la aplicación, incluyendo enlaces a diferentes secciones, un botón para mostrar/ocultar la barra lateral y opciones de conexión.
+ * 
+ * @returns {JSX.Element} Un elemento JSX que representa la barra de navegación de la aplicación.
+ */
 const Navbar = () => {
   const dispatch = useDispatch();
   const sidebarStatus = useSelector(selectSidebarStatus);
@@ -120,6 +129,12 @@ const Navbar = () => {
 
 export default Navbar;
 
+/**
+ * Estilos del componente Navbar
+ * 
+ * @description Este styled-component define los estilos para la barra de navegación, incluyendo el fondo, los enlaces, los botones de conexión y la barra lateral.
+ * @returns {StyledComponent} El componente estilizado para la barra de navegación.
+ */
 const NavbarWrapper = styled.div`
   min-height: 78px;
   background: #090624;

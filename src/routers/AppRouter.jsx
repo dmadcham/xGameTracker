@@ -15,6 +15,14 @@ import BaseLayout from "../layouts/BaseLayout";
 import PublicRoute from "./PublicRoute";
 import ProtectedRoute from "./ProtectedRoute";
 
+/**
+ * Componente AppRouter
+ * 
+ * @component
+ * @description Este componente define las rutas de la aplicación utilizando React Router. Incluye rutas públicas y protegidas, y renderiza diferentes vistas según la ruta actual. Utiliza el componente BaseLayout para envolver las vistas con una estructura común que incluye la barra de navegación y el pie de página.
+ * 
+ * @returns {JSX.Element} Un elemento JSX que representa las rutas de la aplicación.
+ */
 const AppRouter = () => {
   return (
     <BrowserRouter>

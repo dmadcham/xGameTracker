@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>components/common/StarRating.jsx - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#App">App</a></li><li><a href="global.html#AppRouter">AppRouter</a></li><li><a href="global.html#Banner">Banner</a></li><li><a href="global.html#BannerWrapper">BannerWrapper</a></li><li><a href="global.html#BaseLayout">BaseLayout</a></li><li><a href="global.html#Breadcrumb">Breadcrumb</a></li><li><a href="global.html#BreadcrumbWrapper">BreadcrumbWrapper</a></li><li><a href="global.html#CreatorAllPage">CreatorAllPage</a></li><li><a href="global.html#CreatorAllPageWrapper">CreatorAllPageWrapper</a></li><li><a href="global.html#CreatorItem">CreatorItem</a></li><li><a href="global.html#CreatorItemWrapper">CreatorItemWrapper</a></li><li><a href="global.html#CreatorList">CreatorList</a></li><li><a href="global.html#CreatorListWrapper">CreatorListWrapper</a></li><li><a href="global.html#Dashboard">Dashboard</a></li><li><a href="global.html#DashboardPage">DashboardPage</a></li><li><a href="global.html#DashboardPageWrapper">DashboardPageWrapper</a></li><li><a href="global.html#DashboardWrapper">DashboardWrapper</a></li><li><a href="global.html#Favorites">Favorites</a></li><li><a href="global.html#FavoritesWrapper">FavoritesWrapper</a></li><li><a href="global.html#Footer">Footer</a></li><li><a href="global.html#FooterWrapper">FooterWrapper</a></li><li><a href="global.html#GameAllPage">GameAllPage</a></li><li><a href="global.html#GameAllPageWrapper">GameAllPageWrapper</a></li><li><a href="global.html#GameDetails">GameDetails</a></li><li><a href="global.html#GameDetailsPage">GameDetailsPage</a></li><li><a href="global.html#GameDetailsPageWrapper">GameDetailsPageWrapper</a></li><li><a href="global.html#GameDetailsWrapper">GameDetailsWrapper</a></li><li><a href="global.html#GameItem">GameItem</a></li><li><a href="global.html#GameItemWrapper">GameItemWrapper</a></li><li><a href="global.html#GameList">GameList</a></li><li><a href="global.html#GameListWrapper">GameListWrapper</a></li><li><a href="global.html#GenreItem">GenreItem</a></li><li><a href="global.html#GenreItemWrapper">GenreItemWrapper</a></li><li><a href="global.html#HomePage">HomePage</a></li><li><a href="global.html#HomeWrapper">HomeWrapper</a></li><li><a href="global.html#ImageSlider">ImageSlider</a></li><li><a href="global.html#ImageSliderWrapper">ImageSliderWrapper</a></li><li><a href="global.html#Login">Login</a></li><li><a href="global.html#LoginPage">LoginPage</a></li><li><a href="global.html#LoginPageWrapper">LoginPageWrapper</a></li><li><a href="global.html#LoginWrapper">LoginWrapper</a></li><li><a href="global.html#Navbar">Navbar</a></li><li><a href="global.html#NavbarWrapper">NavbarWrapper</a></li><li><a href="global.html#PageNotFound">PageNotFound</a></li><li><a href="global.html#PageNotFoundWrapper">PageNotFoundWrapper</a></li><li><a href="global.html#Pagination">Pagination</a></li><li><a href="global.html#PaginationWrapper">PaginationWrapper</a></li><li><a href="global.html#Preloader">Preloader</a></li><li><a href="global.html#PreloaderWrapper">PreloaderWrapper</a></li><li><a href="global.html#ProtectedRoute">ProtectedRoute</a></li><li><a href="global.html#PublicRoute">PublicRoute</a></li><li><a href="global.html#Register">Register</a></li><li><a href="global.html#RegisterPage">RegisterPage</a></li><li><a href="global.html#RegisterPageWrapper">RegisterPageWrapper</a></li><li><a href="global.html#RegisterWrapper">RegisterWrapper</a></li><li><a href="global.html#StarRating">StarRating</a></li><li><a href="global.html#StarRatingWrapper">StarRatingWrapper</a></li><li><a href="global.html#StoreAllPage">StoreAllPage</a></li><li><a href="global.html#StoreAllPageWrapper">StoreAllPageWrapper</a></li><li><a href="global.html#StoreDetails">StoreDetails</a></li><li><a href="global.html#StoreDetailsPage">StoreDetailsPage</a></li><li><a href="global.html#StoreDetailsPageWrapper">StoreDetailsPageWrapper</a></li><li><a href="global.html#StoreDetailsWrapper">StoreDetailsWrapper</a></li><li><a href="global.html#StoreItem">StoreItem</a></li><li><a href="global.html#StoreItemWrapper">StoreItemWrapper</a></li><li><a href="global.html#StoreList">StoreList</a></li><li><a href="global.html#StoreListWrapper">StoreListWrapper</a></li><li><a href="global.html#Tabs">Tabs</a></li><li><a href="global.html#TabsWrapper">TabsWrapper</a></li><li><a href="global.html#Title">Title</a></li><li><a href="global.html#TitleWrapper">TitleWrapper</a></li></ul>
+    
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">components/common/StarRating.jsx</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import styled from 'styled-components';
+import { FaRegStar, FaStarHalfAlt, FaStar } from 'react-icons/fa';
+import PropTypes from 'prop-types';
+
+/**
+ * Componente de Calificación por Estrellas
+ * 
+ * @component
+ * @description Este componente muestra una calificación por estrellas basada en un valor numérico. Utiliza iconos de estrellas para representar la calificación.
+ * 
+ * @param {Object} props - Las propiedades del componente.
+ * @param {number} props.rating - La calificación numérica que se mostrará, debe estar entre 0 y 5.
+ * 
+ * @return {JSX.Element} Un elemento JSX que representa la calificación por estrellas. 
+ */
+const StarRating = ({ rating }) => {
+    const stars = Array.from({ length: 5}, (_, idx) => {
+        const val = idx + 0.5;
+        return (
+            &lt;li key={ idx }>
+                {
+                    rating >= idx + 1 ? (&lt;FaStar />): rating >= val ? (&lt;FaStarHalfAlt />) : (&lt;FaRegStar />)
+                }
+            &lt;/li>
+        )
+    })
+
+    return (
+        &lt;StarRatingWrapper className='rating d-flex align-items-start text-blue'>
+            { stars }
+        &lt;/StarRatingWrapper>
+    )
+}
+
+export default StarRating;
+
+StarRating.propTypes = {
+    rating: PropTypes.number
+}
+
+
+/**
+ * Estilos del componente StarRating
+ * 
+ * @description Este styled-component define los estilos para la calificación por estrellas, incluyendo la posición y el tamaño de las estrellas.
+ * @returns {StyledComponent} El componente estilizado para la calificación por estrellas.
+ */
+const StarRatingWrapper = styled.ul`
+    position: absolute;
+    right: 18px;
+    bottom: 10px;
+    z-index: 1;
+
+    li{
+        padding: 0 2px;
+        font-size: 14px;
+    }
+`;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.4</a> on Tue Jun 03 2025 12:55:10 GMT+0200 (hora de verano de Europa central) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+
+
+</body>
+</html>

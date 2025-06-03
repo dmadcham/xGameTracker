@@ -1,6 +1,13 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
+/**
+ * Componente PageNotFound
+ * 
+ * @description Este componente muestra una página de error 404 cuando la ruta solicitada no se encuentra. Incluye un mensaje de error y un enlace para volver al inicio.
+ * 
+ * @returns {JSX.Element} Un elemento JSX que representa una página de error 404.
+ */
 const PageNotFound = () => {
   return (
     <PageNotFoundWrapper className='section'>
@@ -15,6 +22,13 @@ const PageNotFound = () => {
 
 export default PageNotFound;
 
+/**
+ * Estilo del componente PageNotFoundWrapper
+ * 
+ * @component
+ * @description Este styled-component define los estilos para la página de error 404. Incluye un fondo oscuro, estilos para el texto del error y un botón para volver al inicio.
+ * @returns {StyledComponent} El componente estilizado que representa la página de error 404.
+ */
 const PageNotFoundWrapper = styled.div`
 background-color: var(--clr-violet-dark-active);
   .value-404{

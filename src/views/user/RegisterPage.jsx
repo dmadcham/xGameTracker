@@ -2,6 +2,13 @@ import styled from "styled-components";
 import { Register } from "../../components/user";
 import { form_image } from "../../utils/images";
 
+/**
+ * Componente RegisterPage
+ * 
+ * @component
+ * @description Este componente representa la página de registro del usuario. Muestra un formulario de registro estilizado con una imagen de fondo. Utiliza el componente `Register` para renderizar el formulario y aplica estilos personalizados al contenedor principal.
+ * @returns {JSX.Element} Un elemento JSX que representa la página de registro del usuario estilizada.
+ */
 const RegisterPage = () => {
   return (
     <RegisterPageWrapper
@@ -16,6 +23,12 @@ const RegisterPage = () => {
 
 export default RegisterPage;
 
+/**
+ * Estilos del componente RegisterPageWrapper
+ * 
+ * @description Este styled-component define los estilos para la página de registro del usuario. Incluye un fondo oscuro y una imagen de fondo, y asegura que el contenido esté centrado y tenga un padding adecuado.
+ * @returns {StyledComponent} El componente estilizado que representa la página de registro del usuario.
+ */
 const RegisterPageWrapper = styled.div`
   background-color: var(--clr-violet-dark-active);
 

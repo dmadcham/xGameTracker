@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>components/game/GameItem.jsx - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#App">App</a></li><li><a href="global.html#AppRouter">AppRouter</a></li><li><a href="global.html#Banner">Banner</a></li><li><a href="global.html#BannerWrapper">BannerWrapper</a></li><li><a href="global.html#BaseLayout">BaseLayout</a></li><li><a href="global.html#Breadcrumb">Breadcrumb</a></li><li><a href="global.html#BreadcrumbWrapper">BreadcrumbWrapper</a></li><li><a href="global.html#CreatorAllPage">CreatorAllPage</a></li><li><a href="global.html#CreatorAllPageWrapper">CreatorAllPageWrapper</a></li><li><a href="global.html#CreatorItem">CreatorItem</a></li><li><a href="global.html#CreatorItemWrapper">CreatorItemWrapper</a></li><li><a href="global.html#CreatorList">CreatorList</a></li><li><a href="global.html#CreatorListWrapper">CreatorListWrapper</a></li><li><a href="global.html#Dashboard">Dashboard</a></li><li><a href="global.html#DashboardPage">DashboardPage</a></li><li><a href="global.html#DashboardPageWrapper">DashboardPageWrapper</a></li><li><a href="global.html#DashboardWrapper">DashboardWrapper</a></li><li><a href="global.html#Favorites">Favorites</a></li><li><a href="global.html#FavoritesWrapper">FavoritesWrapper</a></li><li><a href="global.html#Footer">Footer</a></li><li><a href="global.html#FooterWrapper">FooterWrapper</a></li><li><a href="global.html#GameAllPage">GameAllPage</a></li><li><a href="global.html#GameAllPageWrapper">GameAllPageWrapper</a></li><li><a href="global.html#GameDetails">GameDetails</a></li><li><a href="global.html#GameDetailsPage">GameDetailsPage</a></li><li><a href="global.html#GameDetailsPageWrapper">GameDetailsPageWrapper</a></li><li><a href="global.html#GameDetailsWrapper">GameDetailsWrapper</a></li><li><a href="global.html#GameItem">GameItem</a></li><li><a href="global.html#GameItemWrapper">GameItemWrapper</a></li><li><a href="global.html#GameList">GameList</a></li><li><a href="global.html#GameListWrapper">GameListWrapper</a></li><li><a href="global.html#GenreItem">GenreItem</a></li><li><a href="global.html#GenreItemWrapper">GenreItemWrapper</a></li><li><a href="global.html#HomePage">HomePage</a></li><li><a href="global.html#HomeWrapper">HomeWrapper</a></li><li><a href="global.html#ImageSlider">ImageSlider</a></li><li><a href="global.html#ImageSliderWrapper">ImageSliderWrapper</a></li><li><a href="global.html#Login">Login</a></li><li><a href="global.html#LoginPage">LoginPage</a></li><li><a href="global.html#LoginPageWrapper">LoginPageWrapper</a></li><li><a href="global.html#LoginWrapper">LoginWrapper</a></li><li><a href="global.html#Navbar">Navbar</a></li><li><a href="global.html#NavbarWrapper">NavbarWrapper</a></li><li><a href="global.html#PageNotFound">PageNotFound</a></li><li><a href="global.html#PageNotFoundWrapper">PageNotFoundWrapper</a></li><li><a href="global.html#Pagination">Pagination</a></li><li><a href="global.html#PaginationWrapper">PaginationWrapper</a></li><li><a href="global.html#Preloader">Preloader</a></li><li><a href="global.html#PreloaderWrapper">PreloaderWrapper</a></li><li><a href="global.html#ProtectedRoute">ProtectedRoute</a></li><li><a href="global.html#PublicRoute">PublicRoute</a></li><li><a href="global.html#Register">Register</a></li><li><a href="global.html#RegisterPage">RegisterPage</a></li><li><a href="global.html#RegisterPageWrapper">RegisterPageWrapper</a></li><li><a href="global.html#RegisterWrapper">RegisterWrapper</a></li><li><a href="global.html#StarRating">StarRating</a></li><li><a href="global.html#StarRatingWrapper">StarRatingWrapper</a></li><li><a href="global.html#StoreAllPage">StoreAllPage</a></li><li><a href="global.html#StoreAllPageWrapper">StoreAllPageWrapper</a></li><li><a href="global.html#StoreDetails">StoreDetails</a></li><li><a href="global.html#StoreDetailsPage">StoreDetailsPage</a></li><li><a href="global.html#StoreDetailsPageWrapper">StoreDetailsPageWrapper</a></li><li><a href="global.html#StoreDetailsWrapper">StoreDetailsWrapper</a></li><li><a href="global.html#StoreItem">StoreItem</a></li><li><a href="global.html#StoreItemWrapper">StoreItemWrapper</a></li><li><a href="global.html#StoreList">StoreList</a></li><li><a href="global.html#StoreListWrapper">StoreListWrapper</a></li><li><a href="global.html#Tabs">Tabs</a></li><li><a href="global.html#TabsWrapper">TabsWrapper</a></li><li><a href="global.html#Title">Title</a></li><li><a href="global.html#TitleWrapper">TitleWrapper</a></li></ul>
+    
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">components/game/GameItem.jsx</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import styled from "styled-components";
+import { Link } from "react-router-dom";
+import { FaRegStar } from "react-icons/fa";
+import PropTypes from "prop-types";
+import { StarRating } from "../common";
+
+/**
+ * Componente GameItem
+ * 
+ * @description Este componente muestra un elemento de juego con su imagen, nombre, fecha de lanzamiento, puntuación en Metacritic y una calificación por estrellas. También incluye un enlace para ver más detalles del juego.
+ * 
+ * @param {Object} props - Las propiedades del componente.
+ * @param {Object} props.gameItem - Un objeto que representa un juego, debe contener propiedades como `background_image`, `name`, `released`, `metacritic`, `rating`, y `ratings_count`.
+ * 
+ * @returns {JSX.Element} Un elemento JSX que representa un juego estilizado.
+ */
+const GameItem = ({ gameItem }) => {
+  return (
+    &lt;GameItemWrapper className="card">
+      &lt;div className="card-top img-fit-cover">
+        &lt;img src={gameItem?.background_image} alt={gameItem?.name} />
+        &lt;StarRating rating={gameItem?.rating} />
+        &lt;div className="ratings-count">
+          {gameItem?.ratings_count} &lt;FaRegStar className="ms-1" size={12} />
+        &lt;/div>
+      &lt;/div>
+      &lt;div className="card-bottom">
+        &lt;h4 className="text-white text-uppercase card-title">
+          {gameItem?.name}
+        &lt;/h4>
+        &lt;div className="block-wrap d-flex align-items-end justify-content-between">
+          &lt;div className="details-group">
+            {/* Fecha lanzamiento */}
+            &lt;div className="details-item d-flex align-items-center">
+              &lt;p className="details-item-name fw-6">
+                Fecha de lanzamiento: &amp;nbsp;
+              &lt;/p>
+              &lt;p className="details-item-value">{gameItem?.released} &lt;/p>
+            &lt;/div>
+            {/* Puntuación en Metacritic (https://www.metacritic.com/) */}
+            &lt;div className="details-item d-flex align-items-center">
+              &lt;p className="details-item-name fw-6">Metacritic score: &amp;nbsp;&lt;/p>
+              &lt;p className="details-item-value">{gameItem?.metacritic !== null ? (gameItem?.metacritic) : "Por definir"}&lt;/p>
+            &lt;/div>
+          &lt;/div>
+          &lt;Link
+            to={`/games/${gameItem?.id}`}
+            className="card-button text-uppercase"
+          >
+            ver más
+          &lt;/Link>
+        &lt;/div>
+      &lt;/div>
+    &lt;/GameItemWrapper>
+  );
+};
+
+export default GameItem;
+
+GameItem.propTypes = {
+  gameItem: PropTypes.object,
+};
+
+/**
+ * Estilos del componente GameItem
+ * 
+ * @component
+ * @description Este styled-component define los estilos para el componente GameItem, incluyendo el diseño del contenedor, la imagen del juego, el título, los detalles y el botón de acción.
+ * @returns {StyledComponent} El componente estilizado para el GameItem.
+ */
+const GameItemWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  .card-top {
+    height: 280px;
+    overflow: hidden;
+    position: relative;
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.27) 92.08%
+    );
+    position: relative;
+
+    &amp;::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
+    }
+
+    .ratings-count {
+      position: absolute;
+      left: 18px;
+      bottom: 10px;
+      font-weight: 700;
+      font-size: 14px;
+      padding: 0px 12px;
+      border-radius: 16px;
+      background-color: var(--clr-white);
+      z-index: 1;
+    }
+  }
+
+  .card-bottom {
+    flex: 1;
+    background-color: var(--clr-violet-light);
+    padding: 20px 18px;
+
+    .card-title {
+      font-size: 18px;
+      font-weight: 800px;
+      font-family: var(--font-family-poppins) !important;
+      letter-spacing: 0.06em;
+      margin-bottom: 10px;
+    }
+
+    .card-button {
+      height: 34px;
+      text-align: center;
+      border: 1px solid var(--clr-blue-normal);
+      padding: 0px 16px;
+      min-width: 108px;
+      color: var(--clr-white);
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      display: flex;
+      align-items: center;
+      transition: var(--transition-default);
+
+      &amp;:hover {
+        background-color: var(--clr-blue-normal);
+      }
+    }
+  }
+
+  .details-group {
+    padding-top: 12px;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 14px;
+  }
+`;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.4</a> on Tue Jun 03 2025 12:55:10 GMT+0200 (hora de verano de Europa central) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+
+
+</body>
+</html>

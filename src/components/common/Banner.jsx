@@ -1,6 +1,14 @@
 import styled from 'styled-components';
 import { banner_image } from '../../utils/images';
 
+/**
+ * Componente Banner
+ * 
+ * @component
+ * @description Este componente muestra un banner con una imagen de fondo, un título, un texto descriptivo y un botón.
+ * 
+ * @returns {JSX.Element} Un elemento JSX que representa el banner de la aplicación.
+ */
 const Banner = () => {
   return (
     <BannerWrapper className='d-flex align-items-center justify-content-start' style={{ 
@@ -20,6 +28,13 @@ const Banner = () => {
 
 export default Banner;
 
+
+/**
+ * Estilos del componente Banner
+ * 
+ * @description Este styled-component define los estilos para el Banner, incluyendo el fondo, el título, el texto descriptivo y el botón.
+ * @returns {StyledComponent} El componente estilizado para el Banner. 
+ */
 const BannerWrapper = styled.div`
     min-height: 768px;
 

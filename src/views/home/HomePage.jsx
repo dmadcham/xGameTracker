@@ -29,6 +29,14 @@ import {
 import { StoreList } from "../../components/store/index";
 import { fetchAsyncStores } from "../../redux/utils/storeUtils";
 
+/**
+ * Componente HomePage
+ * 
+ * @component
+ * @description Este componente representa la página de inicio de la aplicación. Muestra un banner, una lista de juegos populares, una sección para unirse a la comunidad, una lista de juegos filtrados por género y una lista de tiendas. Utiliza Redux para gestionar el estado de los juegos, géneros y tiendas, y realiza solicitudes asíncronas para obtener estos datos al cargar la página.
+ * 
+ * @returns {JSX.Element} Un elemento JSX que representa la página de inicio de la aplicación, incluyendo un banner, una lista de juegos populares, una sección para unirse a la comunidad, una lista de géneros y una lista de tiendas.
+ */
 const HomePage = () => {
   const dispatch = useDispatch();
   const games = useSelector(selectAllGames);
@@ -160,6 +168,12 @@ const HomePage = () => {
 
 export default HomePage;
 
+/**
+ * Estilos para el componente HomePage
+ * 
+ * @description Este styled-component define los estilos para la página de inicio, incluyendo secciones para juegos populares, unirse a la comunidad, géneros y tiendas. Cada sección tiene su propio estilo y fondo, asegurando que el contenido sea visualmente atractivo y fácil de navegar.
+ * @returns {StyledComponent} El componente estilizado que representa la página de inicio de la aplicación.
+ */
 const HomeWrapper = styled.div`
   .sc-popular {
     background-color: var(--clr-violet-dark-active);

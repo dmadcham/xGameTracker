@@ -8,6 +8,16 @@ import { FaRegStar } from "react-icons/fa";
 import { data, Link } from "react-router-dom";
 import { StarRating } from "../common";
 
+/**
+ * Componente GenreItem
+ * 
+ * @component
+ * @description Este componente muestra un elemento de juego dentro de una lista de géneros. Incluye la imagen del juego, su nombre, fecha de lanzamiento, puntuación en Metacritic y una calificación por estrellas. También proporciona un enlace para ver más detalles del juego.
+ * @param {Object} props - Las propiedades del componente.
+ * @param {Object} props.gameItem - Un objeto que representa un juego, debe contener propiedades como `id`, `background_image`, `name`, `released`, `metacritic`, `rating`, y `ratings_count`.
+ * 
+ * @returns {JSX.Element} Un elemento JSX que representa un juego estilizado dentro de un género.
+ */
 const GenreItem = ({ gameItem }) => {
   const [gameData, setGameData] = useState({});
 
@@ -61,6 +71,12 @@ GenreItem.propTypes = {
   gameItem: PropTypes.object,
 };
 
+/**
+ * Estilos del componente GenreItem
+ * 
+ * @description Este styled-component define los estilos para el componente GenreItem, incluyendo el diseño del contenedor, la imagen del juego, el título, los detalles y el botón de acción.
+ * @returns {StyledComponent} El componente estilizado para el GenreItem.
+ */
 const GenreItemWrapper = styled.div`
   display: flex;
   flex-direction: column;

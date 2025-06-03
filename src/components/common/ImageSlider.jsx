@@ -4,6 +4,13 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from 'react-slick';
 import { sliderImages } from '../../utils/images';
 
+/**
+ * Componente ImageSlider
+ * 
+ * @description Este componente muestra un slider de imágenes utilizando la librería react-slick.
+ * 
+ * @returns {JSX.Element} Un elemento JSX que representa un slider de imágenes.
+ */
 const ImageSlider = () => {
   // Referncia para la configuración: https://kenwheeler.github.io/slick/
   const settings = {
@@ -57,6 +64,13 @@ const ImageSlider = () => {
 
 export default ImageSlider;
 
+/**
+ * Estilos del componente ImageSlider
+ * 
+ * @component
+ * @description Este styled-component define los estilos para el ImageSlider, incluyendo el fondo, los elementos del slider y los botones de navegación.
+ * @returns {StyledComponent} El componente estilizado para el ImageSlider.
+ */
 const ImageSliderWrapper = styled.div`
   background-color: #050415;
 

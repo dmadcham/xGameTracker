@@ -4,6 +4,16 @@ import PropTypes from "prop-types";
 import { HiMenu } from "react-icons/hi";
 import { GenreItem } from "../genre";
 
+/**
+ * Componente Tabs
+ * 
+ * @component
+ * @description Este componente muestra una lista de géneros de juegos en forma de pestañas. Permite al usuario seleccionar un género y ver los juegos asociados a ese género.
+ * @param {Object} props - Las propiedades del componente.
+ * @param {Array} props.data - Un array de objetos que representan los géneros de juegos. Cada objeto debe tener un `id`, `name` y un array de `games`.
+ * 
+ * @returns {JSX.Element} Un elemento JSX que representa las pestañas de géneros de juegos.
+ */
 const Tabs = ({ data }) => {
   const [activeTab, setActiveTab] = useState(data[0]); // Por defecto se utiliza el primer género
   const [tabButtonStatus, setTabButtonStatus] = useState(false);
@@ -68,9 +78,14 @@ export default Tabs;
 
 Tabs.propTypes = {
   data: PropTypes.array,
-  sliceValue: PropTypes.number,
 };
 
+/**
+ * Estilos del componente Tabs
+ * 
+ * @description Este styled-component define los estilos para el componente de pestañas, incluyendo la disposición de los botones y el cuerpo de las pestañas.
+ * @returns {StyledComponent} El componente estilizado para las pestañas.
+ */
 const TabsWrapper = styled.div`
   position: relative;
   min-height: 1000px;

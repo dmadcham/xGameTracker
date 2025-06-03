@@ -17,6 +17,13 @@ import { useState } from "react";
 
 const ITEMS_PER_PAGE = 6;
 
+/**
+ * Componente Favorites
+ * 
+ * @description Este componente muestra una lista de juegos favoritos del usuario. Utiliza Redux para gestionar el estado de los favoritos y sus detalles, y permite la paginación de los resultados.
+ * 
+ * @returns {JSX.Element} Un elemento JSX que representa la lista de juegos favoritos del usuario, con paginación y un enlace para añadir más juegos. 
+ */
 const Favorites = () => {
   const dispatch = useDispatch();
   const favorites = useSelector(selectAllFavorites);
@@ -88,6 +95,13 @@ const Favorites = () => {
 
 export default Favorites;
 
+/**
+ * Estilos del componente Favorites
+ * 
+ * @component
+ * @description Este styled-component define los estilos para el componente Favorites, incluyendo el fondo, la disposición y el espaciado del contenedor principal.
+ * @returns {StyledComponent} El componente estilizado para el Favorites.
+ */
 const FavoritesWrapper = styled.div`
   background-color: var(--clr-violet-dark-active);
   display: flex;

@@ -1,6 +1,16 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
+/**
+ * Componente Title
+ * 
+ * @component
+ * @description Este componente muestra un título con dos partes de texto, donde la segunda parte está resaltada. Se utiliza para destacar secciones importantes en la interfaz de usuario.
+ * @param {Object} props - Las propiedades del componente.
+ * @param {Object} props.titleName - Un objeto que contiene dos propiedades: `firstText` y `secondText`, que representan las dos partes del título.
+ * 
+ * @returns {JSX.Element} Un elemento JSX que representa el título estilizado. 
+ */
 const CreatorItem = ({ creatorItem }) => {
   const positions = creatorItem?.positions?.map(position => position?.name);
   const games = creatorItem?.games?.map(game => game?.name);
@@ -41,6 +51,12 @@ CreatorItem.propTypes = {
   creatorItem: PropTypes.object
 }
 
+/**
+ * Estilos del componente CreatorItem
+ * 
+ * @description Este styled-component define los estilos para el componente CreatorItem, incluyendo el diseño del contenedor, la imagen del creador, el título y la lista de información.
+ * @returns {StyledComponent} El componente estilizado para el CreatorItem.
+ */
 const CreatorItemWrapper = styled.div`
   min-height: 360px;
   margin-bottom: 80px;

@@ -1,6 +1,16 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
+/**
+ * Componente Title
+ * 
+ * @component
+ * @description Este componente muestra un título con dos partes de texto, donde la segunda parte está resaltada. Se utiliza para destacar secciones importantes en la interfaz de usuario.
+ * @param {Object} props - Las propiedades del componente.
+ * @param {Object} props.titleName - Un objeto que contiene dos propiedades: `firstText` y `secondText`, que representan las dos partes del título.
+ * 
+ * @returns {JSX.Element} Un elemento JSX que representa el título estilizado. 
+ */
 const Title = ({ titleName }) => {
   return (
     <TitleWrapper>
@@ -19,6 +29,12 @@ Title.propTypes = {
   titleName: PropTypes.object
 }
 
+/**
+ * Estilos del componente Title
+ * 
+ * @description Este styled-component define los estilos para el título, incluyendo el espaciado, alineación, color y tipografía. También incluye un subrayado decorativo.
+ * @returns {StyledComponent} El componente estilizado para el título.
+ */
 const TitleWrapper = styled.div`
   padding: 12px 0;
   text-align: center;

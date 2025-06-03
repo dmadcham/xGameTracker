@@ -2,6 +2,19 @@ import styled from "styled-components";
 import PropTypes from "prop-types";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
+/**
+ * Componente de Paginación
+ * 
+ * @component
+ * @description Este componente maneja la paginación de una lista de elementos, permitiendo navegar entre páginas.
+ * 
+ * @param {Object} props - Las propiedades del componente.
+ * @param {Function} props.pageHandler - Función para manejar el cambio de página.
+ * @param {string} props.nextPage - URL de la siguiente página.
+ * @param {string} props.prevPage - URL de la página anterior.
+ * @param {number} props.currentPage - Número de la página actual. 
+ * @return {JSX.Element} Un elemento JSX que representa los botones de paginación.
+ */
 const Pagination = ({ pageHandler, nextPage, prevPage, currentPage }) => {
   const pageNextHandler = () => {
     if (nextPage !== null) pageHandler(++currentPage);
@@ -47,6 +60,12 @@ Pagination.PropTypes = {
   currentPage: PropTypes.number,
 };
 
+/**
+ * Estilos del componente Pagination
+ * 
+ * @description Este styled-component define los estilos para el componente de paginación, incluyendo los botones de navegación y su disposición.
+ * @returns {JSX.Element} Un elemento JSX que representa un contenedor para los botones de paginación.
+ */
 const PaginationWrapper = styled.div`
   margin-top: 48px;
   .prev-btn,
