@@ -1,12 +1,41 @@
-# React + Vite
+# xGameTracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Guía de instalación
 
-Currently, two official plugins are available:
+### Automático
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+#### Ejecutar el script de instalación
 
-## Expanding the ESLint configuration
+**Si tienes WSL/Linux**
+> start-all.sh
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+**Si tienes Windows sin WSL**
+> start-all.bat
+
+*Si hay un error de permisos o la ejecución de scripts está deshabilitada:*
+> Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
+
+### Paso a paso
+
+#### 1. Clonar el repositorio de GitHub
+
+> git clone https://github.com/dmadcham/xGameTracker.git
+> cd xGameTracker
+
+### 2. Instalar las dependencias del Frontend
+
+> npm install
+
+### 3. Levantar el contenedor MySQL
+
+> docker-compose up -d
+
+### 4. Ejecutar la aplicación
+
+> docker start mysql-xgt 
+
+> npm run dev
+
+> cd server 
+
+> node index
