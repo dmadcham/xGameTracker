@@ -38,4 +38,4 @@
 
 > cd server 
 
-> node index
+> node index.js
