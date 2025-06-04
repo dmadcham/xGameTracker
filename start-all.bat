@@ -13,10 +13,10 @@ docker-compose up -d
 timeout /t 5
 
 echo Iniciando backend...
-start cmd /k "cd server && npm index.js"
+start cmd /k "cd server && node index.js"
 
 echo Iniciando frontend...
-start cmd /k "nom run dev"
+start cmd /k "npm run dev"
 
 echo Todos los servicios han sido iniciados correctamente.
 pause
