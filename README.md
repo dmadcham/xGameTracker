@@ -2,6 +2,8 @@
 
 ## Guía de instalación
 
+Antes de comenzar, es importante tener instalado Node.js, Git, y Docker. Sin estas tecnologías la aplicación no podrá ser instalada.
+
 ### Automático
 
 #### Ejecutar el script de instalación
