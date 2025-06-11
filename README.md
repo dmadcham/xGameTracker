@@ -17,24 +17,40 @@
 
 ### Paso a paso
 
-#### 1. Clonar el repositorio de GitHub
+### 1. Clonar el repositorio de GitHub
 
 > git clone https://github.com/dmadcham/xGameTracker.git
+
+#### 1.1 Entrar en el directorio del repositorio
 > cd xGameTracker
 
 ### 2. Instalar las dependencias del Frontend
 
 > npm install
 
-### 3. Levantar el contenedor MySQL
+### 3. Instalar las dependencias del Backend
+
+> cd server
+
+> npm install
+
+### 3. Levantar el contenedor MySQL e inicializar la base de datos
 
 > docker-compose up -d
 
+> node init-db.js
+
 ### 4. Ejecutar la aplicación
 
-> docker start mysql-xgt 
+#### 4.1 Frontend
+
+*En una terminal a parte*
 
 > npm run dev
+
+#### 4.2 Backend
+
+*En otra terminal*
 
 > cd server 
 
