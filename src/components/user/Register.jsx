@@ -194,6 +194,7 @@ const RegisterWrapper = styled.div`
       letter-spacing: 0.03em;
       display: flex;
       align-items: center;
+      justify-content: center;
       transition: var(--transition-default);
 
       &:hover {
